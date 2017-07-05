@@ -9,6 +9,9 @@ https://github.com/happypancake/react-native-tab-navigator
 `import TabNavigator from 'react-native-tab-navigator';`
 3. 使用
 ```javascript
+import TabNavigator from 'react-native-tab-navigator';  
+import Home from './home';
+import Profile from './warn';
 export default class homePage extends Component {
   constructor(props){
     super(props);
@@ -26,7 +29,7 @@ export default class homePage extends Component {
           renderSelectedIcon={() => <Image source={...} />}
           badgeText="1"
           onPress={() => this.setState({ selectedTab: 'home' })}>
-          {homeView}
+          <Home/>
         </TabNavigator.Item>
         <TabNavigator.Item
           selected={this.state.selectedTab === 'profile'}
@@ -35,7 +38,7 @@ export default class homePage extends Component {
           renderSelectedIcon={() => <Image source={...} />}
           renderBadge={() => <CustomBadgeView />}
           onPress={() => this.setState({ selectedTab: 'profile' })}>
-          {profileView}
+          <Profile/>
         </TabNavigator.Item>
       </TabNavigator>
     )
