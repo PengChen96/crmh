@@ -9,6 +9,19 @@ https://github.com/happypancake/react-native-tab-navigator
 `import TabNavigator from 'react-native-tab-navigator';`
 3. 使用
 ```javascript
+export default class homePage extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      selectedTab: 'home'
+    };
+  }
+  render(){
+    return (
+    
+    )
+  }
+}
 <TabNavigator>
   <TabNavigator.Item
     selected={this.state.selectedTab === 'home'}
