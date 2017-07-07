@@ -19,7 +19,7 @@ export default class homePage extends Component {
                 style={{flex:1}}> 
                 <TabNavigator.Item  
                     title="首页"  
-                    selectedTitleStyle={{color:'#1878fb'}}
+//                  selectedTitleStyle={{color:'#1878fb'}}
                     selected={this.state.selectedTab=='home'}
                     onPress={() => this.setState({ selectedTab: 'home' })}
                     renderIcon={()=><Image  
