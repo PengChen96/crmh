@@ -1,5 +1,6 @@
 # crmh
-### 零. 打包jsbundle
+### 零. 打包APK
+1. 打包jsbundle
 ```
 React-native bundle --entry-file index.android.js --bundle-output ./android/app/src/main/assets/index.android.jsbundle --platform android --assets-dest ./android/app/src/main/res/ --dev false
 ```
