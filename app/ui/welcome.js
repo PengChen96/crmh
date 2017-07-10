@@ -1,22 +1,25 @@
 import React, {Component} from 'react'
 import {StyleSheet,Text,View,Button,Image} from 'react-native';
 import { TabNavigator } from 'react-navigation';
+import Home from './home/home'
 import Warn from './warn/warn'
+import Person from './person/person'
 
 class welcome extends Component {
-  render() {
-    return (
-      <Button
-        onPress={() => this.props.navigation.navigate('Bill')}
-        title="Go to notifications"
-      />
-    );
-  }
+//render() {
+//  return (
+//    <Button
+//      onPress={() => this.props.navigation.navigate('Bill')}
+//      title="Go to notifications"
+//    />
+//  );
+//}
 }
+
 // 注册tabs
 const Tabs = TabNavigator({
   Home: {
-    screen: welcome,
+    screen: Home,
     navigationOptions: {  // 也可以写在组件的static navigationOptions内
       tabBarLabel: '首页',
       tabBarIcon: ({tintColor}) => (<Image source={require('../res/images/home.png')} style={[{tintColor: tintColor},styles.icon]}/>),
@@ -30,7 +33,7 @@ const Tabs = TabNavigator({
     }
   },
   Me: {
-    screen: welcome,
+    screen: Person,
     navigationOptions: {
       tabBarLabel: '我',
       tabBarIcon: ({tintColor}) => (<Image source={require('../res/images/person.png')} style={[{tintColor: tintColor},styles.icon]}/>),
