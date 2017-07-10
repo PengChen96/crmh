@@ -11,7 +11,7 @@ class home extends Component {
 			<View>
 			  <Text> hello Home !</Text>
 			  <StatusBar
-			    backgroundColor="red"
+			    backgroundColor="#1878fb"
 			    barStyle="light-content"
 			  />
 			</View>
