@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import { Text,Image,View,Button,StatusBar} from 'react-native';
+import { Text,Image,View,Button,StatusBar } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 
 class home extends Component {
 	static navigationOptions = {
-	    title: 'Welcome Home',
+	    headerTitle: 'Welcome Home',
 	};
 	render(){
 		return(
