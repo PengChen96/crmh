@@ -111,8 +111,17 @@ android {
             include "armeabi-v7a", "x86"
         }
     }
+    signingConfigs {
+        release {
+            storeFile file('E:/NativeApp/cmrh/android/app/peng-release.keystore')
+            storePassword 'cmrhpc'
+            keyAlias 'peng-alias'
+            keyPassword 'cmrhpc'
+        }
+    }
     buildTypes {
         release {
+            signingConfig signingConfigs.release
             minifyEnabled enableProguardInReleaseBuilds
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
         }

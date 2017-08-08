@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import {StyleSheet,Text,View,Button,Image} from 'react-native';
 import { TabNavigator } from 'react-navigation';
 import Home from './home/home'
-import Warn from './warn/warn'
+import Msg from './msg/msg'
 import Person from './person/person'
 
 class welcome extends Component {
@@ -26,7 +26,7 @@ const Tabs = TabNavigator({
     }
   },
   Bill: {
-    screen: Warn,
+    screen: Msg,
     navigationOptions: {
       tabBarLabel: '消息',
       tabBarIcon: ({tintColor}) => (<Image source={require('../res/images/warn.png')} style={[{tintColor: tintColor},styles.icon]}/>),

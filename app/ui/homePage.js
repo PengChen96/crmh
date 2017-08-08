@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Text,Image,View,StyleSheet } from 'react-native';
 import TabNavigator from 'react-native-tab-navigator';  
 import Home from './home/home';
-import Mid from './warn/warn';
+import Msg from './msg/msg';
 import Person from './person/person';
 
 export default class homePage extends Component {
@@ -36,8 +36,8 @@ export default class homePage extends Component {
 //                  badgeText="99+"
 					renderBadge={()=><View style={styles.badgeView}>
 						<Text style={styles.badgeText}>15</Text></View>}
-                    selected={this.state.selectedTab=='warn'}
-                    onPress={() => this.setState({ selectedTab: 'warn' })}
+                    selected={this.state.selectedTab=='msg'}
+                    onPress={() => this.setState({ selectedTab: 'msg' })}
                     renderIcon={()=><Image  
                         style={{width:40,height:33,tintColor:'gray'}}
                         source={require('../res/images/warn.png')}></Image>}
@@ -45,7 +45,7 @@ export default class homePage extends Component {
                     	style={{width:40,height:33,tintColor:'#1878fb'}}
                     	source={require('../res/images/warn.png')} />}
                     >  
-                    <Mid/>  
+                    <Msg/>  
                 </TabNavigator.Item>
                 <TabNavigator.Item  
                     title="我"  
@@ -70,12 +70,12 @@ const styles = StyleSheet.create({
 	    width:22,  
 	    height:14 ,  
 	    backgroundColor:'#f85959',  
-		borderWidth:1,  
-		marginLeft:10,  
-		marginTop:3,  
-		borderColor:'#FFF',  
-		alignItems:'center',  
-		justifyContent:'center',  
+			borderWidth:1,  
+			marginLeft:10,  
+			marginTop:3,  
+			borderColor:'#FFF',  
+			alignItems:'center',  
+			justifyContent:'center',  
 	    borderRadius:8,  
 	},  
 	badgeText:{  
