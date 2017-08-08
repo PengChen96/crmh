@@ -1,10 +1,22 @@
 import React, { Component } from 'react';
 import { Text,Image,View } from 'react-native';
+import { StackNavigator } from 'react-navigation';
 
-export default class warn extends Component {
+class warn extends Component {
+	static navigationOptions = {
+	    headerTitle: '消息列表',
+	};
 	render(){
 		return(
-			<Text> mid </Text>
+			<View>
+			  <Text>消息列表</Text>
+			</View>
 		)
 	}
 }
+
+const App = StackNavigator({
+	Warn: {screen: warn}
+})
+
+export default App;

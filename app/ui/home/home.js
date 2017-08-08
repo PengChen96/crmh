@@ -4,7 +4,7 @@ import { StackNavigator } from 'react-navigation';
 
 class home extends Component {
 	static navigationOptions = {
-	    headerTitle: 'Welcome Home',
+	    headerTitle: '首页',
 	};
 	render(){
 		return(
