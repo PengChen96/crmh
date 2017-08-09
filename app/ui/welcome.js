@@ -6,6 +6,12 @@ import Msg from './msg/msg'
 import Person from './person/person'
 
 class welcome extends Component {
+
+	render() {
+		return (
+			<Tabs/>
+		)
+	}
 //render() {
 //  return (
 //    <Button
@@ -66,11 +72,11 @@ const Tabs = TabNavigator({
     }
   }
 });
-export default Tabs;
+export default welcome;
 
 const styles = StyleSheet.create({
   icon: {
-	width: 28,
-	height: 28,
+		width: 28,
+		height: 28,
   },
 })

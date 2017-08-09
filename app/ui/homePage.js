@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Text,Image,View,StyleSheet } from 'react-native';
+import { AppRegistry,Text,Image,View,StyleSheet } from 'react-native';
 import TabNavigator from 'react-native-tab-navigator';  
 import Home from './home/home';
 import Msg from './msg/msg';
@@ -8,10 +8,15 @@ import Person from './person/person';
 export default class homePage extends Component {
 	constructor(props){
 		super(props);
+		console.log(this.props);
+    console.log("homePage");
 		this.state = {
 			selectedTab: 'home'
 		};
 	}
+	componentDidMount() {
+    console.log(this.props.navigator);
+  }
 	render(){
 		return (
 			<TabNavigator  
@@ -29,7 +34,7 @@ export default class homePage extends Component {
                     	style={{width:40,height:33,tintColor:'#1878fb'}}
                     	source={require('../res/images/home.png')} />}
                     >
-                    <Home/>
+                    <Home navigator={this.props.navigator}/>
                 </TabNavigator.Item> 
                 <TabNavigator.Item  
                     title="消息"  
@@ -45,7 +50,7 @@ export default class homePage extends Component {
                     	style={{width:40,height:33,tintColor:'#1878fb'}}
                     	source={require('../res/images/warn.png')} />}
                     >  
-                    <Msg/>  
+                    <Msg navigator={this.props.navigator}/>  
                 </TabNavigator.Item>
                 <TabNavigator.Item  
                     title="我"  
@@ -83,3 +88,4 @@ const styles = StyleSheet.create({
 	    fontSize:8
 	}
 })
+//AppRegistry.registerComponent('cmrh', () => homePage)

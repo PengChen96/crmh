@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
-import { Text } from 'react-native';
+import { AppRegistry,Text } from 'react-native';
 //import {Navigator} from "react-native-deprecated-custom-components";
 //import HomePage from './ui/homePage'
-import HomePage from './ui/welcome'
+//import HomePage from './ui/welcome'
+import HomePage from './navig'
 
 export default class entry extends Component {
-	
 	render(){
 		return (
 			<HomePage/>
@@ -36,3 +36,4 @@ export default class entry extends Component {
 //      );
 //	}
 }
+//AppRegistry.registerComponent('cmrh', () => entry);
