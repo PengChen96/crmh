@@ -48525,9 +48525,17 @@ var _reactNative = require(26            ); // 26 = react-native
 
 var _reactNavigation = require(403               ); // 403 = react-navigation
 
-var _warn = require(461          ); // 461 = ./warn/warn
+var _home = require(461          ); // 461 = ./home/home
 
-var _warn2 = babelHelpers.interopRequireDefault(_warn);
+var _home2 = babelHelpers.interopRequireDefault(_home);
+
+var _msg = require(462        ); // 462 = ./msg/msg
+
+var _msg2 = babelHelpers.interopRequireDefault(_msg);
+
+var _person = require(465              ); // 465 = ./person/person
+
+var _person2 = babelHelpers.interopRequireDefault(_person);
 
 var welcome = function (_Component) {
   babelHelpers.inherits(welcome, _Component);
@@ -48537,64 +48545,47 @@ var welcome = function (_Component) {
     return babelHelpers.possibleConstructorReturn(this, (welcome.__proto__ || Object.getPrototypeOf(welcome)).apply(this, arguments));
   }
 
-  babelHelpers.createClass(welcome, [{
-    key: 'render',
-    value: function render() {
-      var _this2 = this;
-
-      return _react2.default.createElement(_reactNative.Button, {
-        onPress: function onPress() {
-          return _this2.props.navigation.navigate('Bill');
-        },
-        title: 'Go to notifications',
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 9
-        }
-      });
-    }
-  }]);
   return welcome;
 }(_react.Component);
 
 var Tabs = (0, _reactNavigation.TabNavigator)({
   Home: {
-    screen: welcome,
+    screen: _home2.default,
     navigationOptions: {
       tabBarLabel: '首页',
       tabBarIcon: function tabBarIcon(_ref) {
         var tintColor = _ref.tintColor;
-        return _react2.default.createElement(_reactNative.Image, { source: require(462                     ), style: [{ tintColor: tintColor }, styles.icon], __source: { // 462 = ../res/images/home.png
+        return _react2.default.createElement(_reactNative.Image, { source: require(466                     ), style: [{ tintColor: tintColor }, styles.icon], __source: { // 466 = ../res/images/home.png
             fileName: _jsxFileName,
-            lineNumber: 22
+            lineNumber: 25
           }
         });
       }
     }
   },
   Bill: {
-    screen: _warn2.default,
+    screen: _msg2.default,
     navigationOptions: {
       tabBarLabel: '消息',
       tabBarIcon: function tabBarIcon(_ref2) {
         var tintColor = _ref2.tintColor;
-        return _react2.default.createElement(_reactNative.Image, { source: require(463                     ), style: [{ tintColor: tintColor }, styles.icon], __source: { // 463 = ../res/images/warn.png
+        return _react2.default.createElement(_reactNative.Image, { source: require(467                     ), style: [{ tintColor: tintColor }, styles.icon], __source: { // 467 = ../res/images/warn.png
             fileName: _jsxFileName,
-            lineNumber: 29
+            lineNumber: 32
           }
         });
       }
     }
   },
   Me: {
-    screen: welcome,
+    screen: _person2.default,
     navigationOptions: {
       tabBarLabel: '我',
       tabBarIcon: function tabBarIcon(_ref3) {
         var tintColor = _ref3.tintColor;
-        return _react2.default.createElement(_reactNative.Image, { source: require(464                       ), style: [{ tintColor: tintColor }, styles.icon], __source: { // 464 = ../res/images/person.png
+        return _react2.default.createElement(_reactNative.Image, { source: require(468                       ), style: [{ tintColor: tintColor }, styles.icon], __source: { // 468 = ../res/images/person.png
             fileName: _jsxFileName,
-            lineNumber: 36
+            lineNumber: 39
           }
         });
       }
@@ -55486,10 +55477,10 @@ module.exports = function hoistNonReactStatics(targetComponent, sourceComponent,
     return targetComponent;
 };
 }, 460, null, "hoist-non-react-statics/index.js");
-__d(/* cmrh/app/ui/warn/warn.js */function(global, require, module, exports) {Object.defineProperty(exports, "__esModule", {
+__d(/* cmrh/app/ui/home/home.js */function(global, require, module, exports) {Object.defineProperty(exports, "__esModule", {
 	value: true
 });
-var _jsxFileName = 'E:\\NativeApp\\cmrh\\app\\ui\\warn\\warn.js';
+var _jsxFileName = 'E:\\NativeApp\\cmrh\\app\\ui\\home\\home.js';
 
 var _react = require(12     ); // 12 = react
 
@@ -55497,40 +55488,351 @@ var _react2 = babelHelpers.interopRequireDefault(_react);
 
 var _reactNative = require(26            ); // 26 = react-native
 
-var warn = function (_Component) {
-	babelHelpers.inherits(warn, _Component);
+var _reactNavigation = require(403               ); // 403 = react-navigation
 
-	function warn() {
-		babelHelpers.classCallCheck(this, warn);
-		return babelHelpers.possibleConstructorReturn(this, (warn.__proto__ || Object.getPrototypeOf(warn)).apply(this, arguments));
+var home = function (_Component) {
+	babelHelpers.inherits(home, _Component);
+
+	function home() {
+		babelHelpers.classCallCheck(this, home);
+		return babelHelpers.possibleConstructorReturn(this, (home.__proto__ || Object.getPrototypeOf(home)).apply(this, arguments));
 	}
 
-	babelHelpers.createClass(warn, [{
+	babelHelpers.createClass(home, [{
 		key: 'render',
 		value: function render() {
 			return _react2.default.createElement(
-				_reactNative.Text,
+				_reactNative.View,
 				{
 					__source: {
 						fileName: _jsxFileName,
-						lineNumber: 7
+						lineNumber: 11
 					}
 				},
-				' mid '
+				_react2.default.createElement(
+					_reactNative.Text,
+					{
+						__source: {
+							fileName: _jsxFileName,
+							lineNumber: 12
+						}
+					},
+					' hello Home !'
+				),
+				_react2.default.createElement(_reactNative.StatusBar, {
+					backgroundColor: '#1878fb',
+					barStyle: 'light-content',
+					__source: {
+						fileName: _jsxFileName,
+						lineNumber: 13
+					}
+				})
 			);
 		}
 	}]);
-	return warn;
+	return home;
 }(_react.Component);
 
-exports.default = warn;
-}, 461, null, "cmrh/app/ui/warn/warn.js");
+home.navigationOptions = {
+	headerTitle: '首页'
+};
+
+var App = (0, _reactNavigation.StackNavigator)({
+	Home: { screen: home }
+}, {
+	initialRouteName: 'Home',
+	mode: 'card',
+	headerMode: 'screen',
+	onTransitionStart: function onTransitionStart() {
+		console.log('导航栏切换开始');
+	},
+	onTransitionEnd: function onTransitionEnd() {
+		console.log('导航栏切换结束');
+	} });
+exports.default = App;
+}, 461, null, "cmrh/app/ui/home/home.js");
+__d(/* cmrh/app/ui/msg/msg.js */function(global, require, module, exports) {Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+var _jsxFileName = 'E:\\NativeApp\\cmrh\\app\\ui\\msg\\msg.js';
+
+var _react = require(12     ); // 12 = react
+
+var _react2 = babelHelpers.interopRequireDefault(_react);
+
+var _reactNative = require(26            ); // 26 = react-native
+
+var _reactNavigation = require(403               ); // 403 = react-navigation
+
+var _room = require(463     ); // 463 = ./room
+
+var _room2 = babelHelpers.interopRequireDefault(_room);
+
+var msg = function (_Component) {
+	babelHelpers.inherits(msg, _Component);
+
+	function msg() {
+		babelHelpers.classCallCheck(this, msg);
+		return babelHelpers.possibleConstructorReturn(this, (msg.__proto__ || Object.getPrototypeOf(msg)).apply(this, arguments));
+	}
+
+	babelHelpers.createClass(msg, [{
+		key: 'render',
+		value: function render() {
+			var navigate = this.props.navigation.navigate;
+
+			return _react2.default.createElement(
+				_reactNative.View,
+				{ style: styles.container, __source: {
+						fileName: _jsxFileName,
+						lineNumber: 13
+					}
+				},
+				_react2.default.createElement(_reactNative.FlatList, {
+					data: [{ key: '房间一' }, { key: '房间二' }, { key: '房间三' }, { key: '房间四' }, { key: '房间五' }, { key: '房间六' }, { key: '房间七' }, { key: '房间八' }, { key: '房间九' }, { key: '房间十' }],
+					renderItem: function renderItem(_ref) {
+						var item = _ref.item;
+						return _react2.default.createElement(
+							_reactNative.View,
+							{
+								__source: {
+									fileName: _jsxFileName,
+									lineNumber: 28
+								}
+							},
+							_react2.default.createElement(
+								_reactNative.TouchableHighlight,
+								{
+									underlayColor: '#d2e6ff',
+									onPress: function onPress() {
+										return navigate('Room', { val: item.key });
+									}, __source: {
+										fileName: _jsxFileName,
+										lineNumber: 29
+									}
+								},
+								_react2.default.createElement(
+									_reactNative.View,
+									{ style: styles.roomContain, __source: {
+											fileName: _jsxFileName,
+											lineNumber: 32
+										}
+									},
+									_react2.default.createElement(
+										_reactNative.View,
+										{ style: styles.imgBox, __source: {
+												fileName: _jsxFileName,
+												lineNumber: 33
+											}
+										},
+										_react2.default.createElement(_reactNative.Image, { source: require(464                        ), style: { width: 44, height: 44, borderRadius: 44 }, __source: { // 464 = ../../res/images/logo.png
+												fileName: _jsxFileName,
+												lineNumber: 34
+											}
+										})
+									),
+									_react2.default.createElement(
+										_reactNative.View,
+										{ style: styles.roomDes, __source: {
+												fileName: _jsxFileName,
+												lineNumber: 36
+											}
+										},
+										_react2.default.createElement(
+											_reactNative.Text,
+											{ style: styles.roomName, __source: {
+													fileName: _jsxFileName,
+													lineNumber: 37
+												}
+											},
+											item.key
+										),
+										_react2.default.createElement(
+											_reactNative.Text,
+											{ style: { fontSize: 12, lineHeight: 18 }, __source: {
+													fileName: _jsxFileName,
+													lineNumber: 38
+												}
+											},
+											' A man can\u2019t ride your back unless it is bent. '
+										)
+									)
+								)
+							)
+						);
+					},
+					__source: {
+						fileName: _jsxFileName,
+						lineNumber: 14
+					}
+				})
+			);
+		}
+	}]);
+	return msg;
+}(_react.Component);
+
+msg.navigationOptions = {
+	headerTitle: '消息列表'
+};
+
+var styles = _reactNative.StyleSheet.create({
+	container: {
+		flex: 1,
+		backgroundColor: "#fff"
+	},
+	roomContain: {
+		flex: 1,
+		flexDirection: 'row',
+		height: 60,
+		padding: 8,
+		borderBottomWidth: 1,
+		borderColor: "#eee"
+	},
+	imgBox: {
+		width: 44,
+		height: 44,
+		borderRadius: 44,
+		backgroundColor: '#eee'
+	},
+	roomDes: {
+		paddingLeft: 8
+	},
+	roomName: {
+		fontSize: 16,
+		lineHeight: 24
+	}
+});
+
+var App = (0, _reactNavigation.StackNavigator)({
+	Msg: { screen: msg },
+	Room: { screen: _room2.default }
+});
+exports.default = App;
+}, 462, null, "cmrh/app/ui/msg/msg.js");
+__d(/* cmrh/app/ui/msg/room.js */function(global, require, module, exports) {Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var _jsxFileName = 'E:\\NativeApp\\cmrh\\app\\ui\\msg\\room.js';
+
+var _react = require(12     ); // 12 = react
+
+var _react2 = babelHelpers.interopRequireDefault(_react);
+
+var _reactNative = require(26            ); // 26 = react-native
+
+var HomeTwo = function (_Component) {
+  babelHelpers.inherits(HomeTwo, _Component);
+
+  function HomeTwo() {
+    babelHelpers.classCallCheck(this, HomeTwo);
+    return babelHelpers.possibleConstructorReturn(this, (HomeTwo.__proto__ || Object.getPrototypeOf(HomeTwo)).apply(this, arguments));
+  }
+
+  babelHelpers.createClass(HomeTwo, [{
+    key: 'render',
+    value: function render() {
+      var params = this.props.navigation.state.params;
+
+      return _react2.default.createElement(
+        _reactNative.View,
+        {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 11
+          }
+        },
+        _react2.default.createElement(
+          _reactNative.Text,
+          {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 12
+            }
+          },
+          '\u6211\u5C31\u662F--',
+          params.val
+        )
+      );
+    }
+  }]);
+  return HomeTwo;
+}(_react.Component);
+
+HomeTwo.navigationOptions = function (_ref) {
+  var navigation = _ref.navigation;
+  return {
+    title: navigation.state.params.val
+  };
+};
+
+exports.default = HomeTwo;
+}, 463, null, "cmrh/app/ui/msg/room.js");
+__d(/* cmrh/app/res/images/logo.png */function(global, require, module, exports) {module.exports=require(259                                         ).registerAsset({"__packager_asset":true,"httpServerLocation":"/assets/app/res/images","width":200,"height":200,"scales":[1],"hash":"82b9c7a5a3f405032b1db71a25f67021","name":"logo","type":"png"}); // 259 = react-native/Libraries/Image/AssetRegistry
+}, 464, null, "cmrh/app/res/images/logo.png");
+__d(/* cmrh/app/ui/person/person.js */function(global, require, module, exports) {Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+var _jsxFileName = 'E:\\NativeApp\\cmrh\\app\\ui\\person\\person.js';
+
+var _react = require(12     ); // 12 = react
+
+var _react2 = babelHelpers.interopRequireDefault(_react);
+
+var _reactNative = require(26            ); // 26 = react-native
+
+var _reactNavigation = require(403               ); // 403 = react-navigation
+
+var person = function (_Component) {
+	babelHelpers.inherits(person, _Component);
+
+	function person() {
+		babelHelpers.classCallCheck(this, person);
+		return babelHelpers.possibleConstructorReturn(this, (person.__proto__ || Object.getPrototypeOf(person)).apply(this, arguments));
+	}
+
+	babelHelpers.createClass(person, [{
+		key: 'render',
+		value: function render() {
+			return _react2.default.createElement(
+				_reactNative.View,
+				{
+					__source: {
+						fileName: _jsxFileName,
+						lineNumber: 11
+					}
+				},
+				_react2.default.createElement(
+					_reactNative.Text,
+					{
+						__source: {
+							fileName: _jsxFileName,
+							lineNumber: 12
+						}
+					},
+					'\u4E2A\u4EBA\u4E2D\u5FC3'
+				)
+			);
+		}
+	}]);
+	return person;
+}(_react.Component);
+
+person.navigationOptions = {
+	headerTitle: '个人中心'
+};
+
+var App = (0, _reactNavigation.StackNavigator)({
+	Person: { screen: person }
+});
+exports.default = App;
+}, 465, null, "cmrh/app/ui/person/person.js");
 __d(/* cmrh/app/res/images/home.png */function(global, require, module, exports) {module.exports=require(259                                         ).registerAsset({"__packager_asset":true,"httpServerLocation":"/assets/app/res/images","width":128,"height":128,"scales":[1],"hash":"6babdc46ad9791553ca47429dad957a0","name":"home","type":"png"}); // 259 = react-native/Libraries/Image/AssetRegistry
-}, 462, null, "cmrh/app/res/images/home.png");
+}, 466, null, "cmrh/app/res/images/home.png");
 __d(/* cmrh/app/res/images/warn.png */function(global, require, module, exports) {module.exports=require(259                                         ).registerAsset({"__packager_asset":true,"httpServerLocation":"/assets/app/res/images","width":128,"height":128,"scales":[1],"hash":"8ff7d7d23baba2c72073ed5040bbefa1","name":"warn","type":"png"}); // 259 = react-native/Libraries/Image/AssetRegistry
-}, 463, null, "cmrh/app/res/images/warn.png");
+}, 467, null, "cmrh/app/res/images/warn.png");
 __d(/* cmrh/app/res/images/person.png */function(global, require, module, exports) {module.exports=require(259                                         ).registerAsset({"__packager_asset":true,"httpServerLocation":"/assets/app/res/images","width":128,"height":128,"scales":[1],"hash":"3621374944d8995d9c6bcdadd89aec6d","name":"person","type":"png"}); // 259 = react-native/Libraries/Image/AssetRegistry
-}, 464, null, "cmrh/app/res/images/person.png");
+}, 468, null, "cmrh/app/res/images/person.png");
 ;require(120);
 ;require(0);
 //# sourceMappingURL=/index.android.map

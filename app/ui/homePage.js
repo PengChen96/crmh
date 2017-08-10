@@ -8,14 +8,14 @@ import Person from './person/person';
 export default class homePage extends Component {
 	constructor(props){
 		super(props);
-		console.log(this.props);
-    console.log("homePage");
 		this.state = {
 			selectedTab: 'home'
 		};
 	}
 	componentDidMount() {
-    console.log(this.props.navigator);
+		console.log("---homePage---");
+    console.log(this.props);
+    console.log(this);
   }
 	render(){
 		return (
@@ -34,7 +34,7 @@ export default class homePage extends Component {
                     	style={{width:40,height:33,tintColor:'#1878fb'}}
                     	source={require('../res/images/home.png')} />}
                     >
-                    <Home navigator={this.props.navigator}/>
+                    <Home/>
                 </TabNavigator.Item> 
                 <TabNavigator.Item  
                     title="消息"  
@@ -50,7 +50,7 @@ export default class homePage extends Component {
                     	style={{width:40,height:33,tintColor:'#1878fb'}}
                     	source={require('../res/images/warn.png')} />}
                     >  
-                    <Msg navigator={this.props.navigator}/>  
+                    <Msg/>   
                 </TabNavigator.Item>
                 <TabNavigator.Item  
                     title="我"  

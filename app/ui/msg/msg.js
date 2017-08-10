@@ -3,25 +3,19 @@ import { AppRegistry,Text,Image,View,FlatList,StyleSheet,Button,TouchableHighlig
 import { StackNavigator } from 'react-navigation';
 import Room from './room';
 
-export default class msg extends Component {
+class msg extends Component {
 	static navigationOptions = {
 	  headerTitle: '消息列表',
 	};
-	constructor(props){
-		super(props);
-	}
+
 	componentDidMount() {
+		console.log("---msg---");
     console.log(this.props);
     console.log(this);
   }
-	jumpSecondView () {
-	  this.props.navigator.push({
-	      component:Room,
-	      params:{val:"212"}
-	  })
-  }
+	
 	render(){
-//		const { navigate } = this.props.navigation;
+		const { navigate } = this.props.navigation;
 		return(
 			<View style={styles.container}>
 			  <FlatList
@@ -41,7 +35,7 @@ export default class msg extends Component {
 				  	<View>
 					  	<TouchableHighlight
 					  	underlayColor="#d2e6ff"
-					  	onPress={() => this.jumpSecondView()}>
+					  	onPress={() => navigate('Room',{val:item.key})}>
 						  	<View style={styles.roomContain}>
 									<View style={styles.imgBox}>
 										<Image source={require('../../res/images/logo.png')} style={{width:44,height:44,borderRadius:44}}/>
@@ -90,10 +84,9 @@ const styles = StyleSheet.create({
 })
 
 
-//const App = StackNavigator({
-//	Msg: {screen: msg},
-//	Room: {screen: Room},
-//})
-//export default App;
+const App = StackNavigator({
+	Msg: {screen: msg},
+	Room: {screen: Room},
+})
+export default App;
 
-//AppRegistry.registerComponent('cmrh', () => msg)
