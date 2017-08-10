@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {StyleSheet,Text,View,Button,Image} from 'react-native';
+import { StyleSheet,Text,View,Button,Image } from 'react-native';
 import { TabNavigator } from 'react-navigation';
 import Home from './home/home'
 import Msg from './msg/msg'

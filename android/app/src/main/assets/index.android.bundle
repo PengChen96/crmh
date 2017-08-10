@@ -48545,6 +48545,17 @@ var welcome = function (_Component) {
     return babelHelpers.possibleConstructorReturn(this, (welcome.__proto__ || Object.getPrototypeOf(welcome)).apply(this, arguments));
   }
 
+  babelHelpers.createClass(welcome, [{
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(Tabs, {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 12
+        }
+      });
+    }
+  }]);
   return welcome;
 }(_react.Component);
 
@@ -48557,7 +48568,7 @@ var Tabs = (0, _reactNavigation.TabNavigator)({
         var tintColor = _ref.tintColor;
         return _react2.default.createElement(_reactNative.Image, { source: require(466                     ), style: [{ tintColor: tintColor }, styles.icon], __source: { // 466 = ../res/images/home.png
             fileName: _jsxFileName,
-            lineNumber: 25
+            lineNumber: 31
           }
         });
       }
@@ -48571,7 +48582,7 @@ var Tabs = (0, _reactNavigation.TabNavigator)({
         var tintColor = _ref2.tintColor;
         return _react2.default.createElement(_reactNative.Image, { source: require(467                     ), style: [{ tintColor: tintColor }, styles.icon], __source: { // 467 = ../res/images/warn.png
             fileName: _jsxFileName,
-            lineNumber: 32
+            lineNumber: 38
           }
         });
       }
@@ -48585,7 +48596,7 @@ var Tabs = (0, _reactNavigation.TabNavigator)({
         var tintColor = _ref3.tintColor;
         return _react2.default.createElement(_reactNative.Image, { source: require(468                       ), style: [{ tintColor: tintColor }, styles.icon], __source: { // 468 = ../res/images/person.png
             fileName: _jsxFileName,
-            lineNumber: 39
+            lineNumber: 45
           }
         });
       }
@@ -48616,7 +48627,7 @@ var Tabs = (0, _reactNavigation.TabNavigator)({
       fontSize: 10 }
   }
 });
-exports.default = Tabs;
+exports.default = welcome;
 
 
 var styles = _reactNative.StyleSheet.create({
@@ -55585,7 +55596,7 @@ var msg = function (_Component) {
 				_reactNative.View,
 				{ style: styles.container, __source: {
 						fileName: _jsxFileName,
-						lineNumber: 13
+						lineNumber: 14
 					}
 				},
 				_react2.default.createElement(_reactNative.FlatList, {
@@ -55597,7 +55608,7 @@ var msg = function (_Component) {
 							{
 								__source: {
 									fileName: _jsxFileName,
-									lineNumber: 28
+									lineNumber: 29
 								}
 							},
 							_react2.default.createElement(
@@ -55608,26 +55619,26 @@ var msg = function (_Component) {
 										return navigate('Room', { val: item.key });
 									}, __source: {
 										fileName: _jsxFileName,
-										lineNumber: 29
+										lineNumber: 30
 									}
 								},
 								_react2.default.createElement(
 									_reactNative.View,
 									{ style: styles.roomContain, __source: {
 											fileName: _jsxFileName,
-											lineNumber: 32
+											lineNumber: 33
 										}
 									},
 									_react2.default.createElement(
 										_reactNative.View,
 										{ style: styles.imgBox, __source: {
 												fileName: _jsxFileName,
-												lineNumber: 33
+												lineNumber: 34
 											}
 										},
 										_react2.default.createElement(_reactNative.Image, { source: require(464                        ), style: { width: 44, height: 44, borderRadius: 44 }, __source: { // 464 = ../../res/images/logo.png
 												fileName: _jsxFileName,
-												lineNumber: 34
+												lineNumber: 35
 											}
 										})
 									),
@@ -55635,14 +55646,14 @@ var msg = function (_Component) {
 										_reactNative.View,
 										{ style: styles.roomDes, __source: {
 												fileName: _jsxFileName,
-												lineNumber: 36
+												lineNumber: 37
 											}
 										},
 										_react2.default.createElement(
 											_reactNative.Text,
 											{ style: styles.roomName, __source: {
 													fileName: _jsxFileName,
-													lineNumber: 37
+													lineNumber: 38
 												}
 											},
 											item.key
@@ -55651,7 +55662,7 @@ var msg = function (_Component) {
 											_reactNative.Text,
 											{ style: { fontSize: 12, lineHeight: 18 }, __source: {
 													fileName: _jsxFileName,
-													lineNumber: 38
+													lineNumber: 39
 												}
 											},
 											' A man can\u2019t ride your back unless it is bent. '
@@ -55663,7 +55674,7 @@ var msg = function (_Component) {
 					},
 					__source: {
 						fileName: _jsxFileName,
-						lineNumber: 14
+						lineNumber: 15
 					}
 				})
 			);
@@ -55739,7 +55750,7 @@ var HomeTwo = function (_Component) {
         {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 11
+            lineNumber: 13
           }
         },
         _react2.default.createElement(
@@ -55747,7 +55758,7 @@ var HomeTwo = function (_Component) {
           {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 12
+              lineNumber: 14
             }
           },
           '\u6211\u5C31\u662F--',
@@ -55762,7 +55773,8 @@ var HomeTwo = function (_Component) {
 HomeTwo.navigationOptions = function (_ref) {
   var navigation = _ref.navigation;
   return {
-    title: navigation.state.params.val
+    title: navigation.state.params.val,
+    tabBarVisible: false
   };
 };
 

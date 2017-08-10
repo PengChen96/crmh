@@ -1,15 +1,11 @@
 import React, { Component } from 'react'
-import { AppRegistry,Text } from 'react-native';
+import { Text } from 'react-native';
 //import {Navigator} from "react-native-deprecated-custom-components";
 //import HomePage from './ui/homePage'
 import HomePage from './ui/welcome'
 
 export default class entry extends Component {
-	componentDidMount() {
-		console.log("---entry---");
-    console.log(this.props);
-    console.log(this);
-  }
+
 	render(){
 		return (
 			<HomePage/>

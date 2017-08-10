@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { AppRegistry,Text,Image,View,FlatList,StyleSheet,Button,TouchableHighlight } from 'react-native';
+import { Text,Image,View,FlatList,StyleSheet,Button,TouchableHighlight } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 import Room from './room';
 
@@ -7,12 +7,6 @@ class msg extends Component {
 	static navigationOptions = {
 	  headerTitle: '消息列表',
 	};
-
-	componentDidMount() {
-		console.log("---msg---");
-    console.log(this.props);
-    console.log(this);
-  }
 	
 	render(){
 		const { navigate } = this.props.navigation;
