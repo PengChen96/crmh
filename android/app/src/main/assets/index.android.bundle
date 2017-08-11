@@ -48533,7 +48533,7 @@ var _msg = require(462        ); // 462 = ./msg/msg
 
 var _msg2 = babelHelpers.interopRequireDefault(_msg);
 
-var _person = require(465              ); // 465 = ./person/person
+var _person = require(467              ); // 467 = ./person/person
 
 var _person2 = babelHelpers.interopRequireDefault(_person);
 
@@ -48566,7 +48566,7 @@ var Tabs = (0, _reactNavigation.TabNavigator)({
       tabBarLabel: '首页',
       tabBarIcon: function tabBarIcon(_ref) {
         var tintColor = _ref.tintColor;
-        return _react2.default.createElement(_reactNative.Image, { source: require(466                     ), style: [{ tintColor: tintColor }, styles.icon], __source: { // 466 = ../res/images/home.png
+        return _react2.default.createElement(_reactNative.Image, { source: require(468                     ), style: [{ tintColor: tintColor }, styles.icon], __source: { // 468 = ../res/images/home.png
             fileName: _jsxFileName,
             lineNumber: 31
           }
@@ -48580,7 +48580,7 @@ var Tabs = (0, _reactNavigation.TabNavigator)({
       tabBarLabel: '消息',
       tabBarIcon: function tabBarIcon(_ref2) {
         var tintColor = _ref2.tintColor;
-        return _react2.default.createElement(_reactNative.Image, { source: require(467                     ), style: [{ tintColor: tintColor }, styles.icon], __source: { // 467 = ../res/images/warn.png
+        return _react2.default.createElement(_reactNative.Image, { source: require(469                     ), style: [{ tintColor: tintColor }, styles.icon], __source: { // 469 = ../res/images/warn.png
             fileName: _jsxFileName,
             lineNumber: 38
           }
@@ -48594,7 +48594,7 @@ var Tabs = (0, _reactNavigation.TabNavigator)({
       tabBarLabel: '我',
       tabBarIcon: function tabBarIcon(_ref3) {
         var tintColor = _ref3.tintColor;
-        return _react2.default.createElement(_reactNative.Image, { source: require(468                       ), style: [{ tintColor: tintColor }, styles.icon], __source: { // 468 = ../res/images/person.png
+        return _react2.default.createElement(_reactNative.Image, { source: require(470                       ), style: [{ tintColor: tintColor }, styles.icon], __source: { // 470 = ../res/images/person.png
             fileName: _jsxFileName,
             lineNumber: 45
           }
@@ -55636,7 +55636,7 @@ var msg = function (_Component) {
 												lineNumber: 34
 											}
 										},
-										_react2.default.createElement(_reactNative.Image, { source: require(464                        ), style: { width: 44, height: 44, borderRadius: 44 }, __source: { // 464 = ../../res/images/logo.png
+										_react2.default.createElement(_reactNative.Image, { source: require(466                        ), style: { width: 44, height: 44, borderRadius: 44 }, __source: { // 466 = ../../res/images/logo.png
 												fileName: _jsxFileName,
 												lineNumber: 35
 											}
@@ -55722,7 +55722,7 @@ var App = (0, _reactNavigation.StackNavigator)({
 exports.default = App;
 }, 462, null, "cmrh/app/ui/msg/msg.js");
 __d(/* cmrh/app/ui/msg/room.js */function(global, require, module, exports) {Object.defineProperty(exports, "__esModule", {
-  value: true
+		value: true
 });
 var _jsxFileName = 'E:\\NativeApp\\cmrh\\app\\ui\\msg\\room.js';
 
@@ -55732,56 +55732,405 @@ var _react2 = babelHelpers.interopRequireDefault(_react);
 
 var _reactNative = require(26            ); // 26 = react-native
 
+var _reactNativeImagePicker = require(464                        ); // 464 = react-native-image-picker
+
+var _reactNativeImagePicker2 = babelHelpers.interopRequireDefault(_reactNativeImagePicker);
+
+var _autoTextInput = require(465                         ); // 465 = ../../common/autoTextInput
+
+var _autoTextInput2 = babelHelpers.interopRequireDefault(_autoTextInput);
+
 var HomeTwo = function (_Component) {
-  babelHelpers.inherits(HomeTwo, _Component);
+		babelHelpers.inherits(HomeTwo, _Component);
 
-  function HomeTwo() {
-    babelHelpers.classCallCheck(this, HomeTwo);
-    return babelHelpers.possibleConstructorReturn(this, (HomeTwo.__proto__ || Object.getPrototypeOf(HomeTwo)).apply(this, arguments));
-  }
+		function HomeTwo(props) {
+				babelHelpers.classCallCheck(this, HomeTwo);
 
-  babelHelpers.createClass(HomeTwo, [{
-    key: 'render',
-    value: function render() {
-      var params = this.props.navigation.state.params;
+				var _this = babelHelpers.possibleConstructorReturn(this, (HomeTwo.__proto__ || Object.getPrototypeOf(HomeTwo)).call(this, props));
 
-      return _react2.default.createElement(
-        _reactNative.View,
-        {
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 13
-          }
-        },
-        _react2.default.createElement(
-          _reactNative.Text,
-          {
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 14
-            }
-          },
-          '\u6211\u5C31\u662F--',
-          params.val
-        )
-      );
-    }
-  }]);
-  return HomeTwo;
+				_this.state = { text: '',
+						data: [{ key: '一' }, { key: '二' }, { key: '三' }, { key: '四' }, { key: '五' }, { key: '六' }, { key: '七' }, { key: '八' }, { key: '九' }, { key: '十' }] };
+				return _this;
+		}
+
+		babelHelpers.createClass(HomeTwo, [{
+				key: 'componentDidMount',
+				value: function componentDidMount() {
+						ws = new WebSocket("ws://119.23.209.74:8000/");
+						ws.onopen = function () {
+								console.log("connected");
+						};
+						ws.onmessage = function (e) {
+								console.log(e);
+						};
+						ws.onerror = function (e) {
+								console.log(e.message);
+						};
+						ws.onclose = function (e) {
+								console.log(e.code, e.reason);
+						};
+				}
+		}, {
+				key: '_sendMessage',
+				value: function _sendMessage(msg) {
+						ws.send(msg);
+						this.state.data.push("111");
+						console.log(this.data);
+				}
+		}, {
+				key: '_selectImageFile',
+				value: function _selectImageFile() {
+						var _this2 = this;
+
+						options = {
+								title: 'Select Avatar',
+								customButtons: [{ name: 'fb', title: 'Choose Photo from Facebook' }],
+								storageOptions: {
+										skipBackup: true,
+										path: 'images'
+								}
+						};
+						_reactNativeImagePicker2.default.showImagePicker(options, function (response) {
+								console.log('Response = ', response);
+
+								if (response.didCancel) {
+										console.log('User cancelled image picker');
+								} else if (response.error) {
+										console.log('ImagePicker Error: ', response.error);
+								} else if (response.customButton) {
+										console.log('User tapped custom button: ', response.customButton);
+								} else {
+										var source = { uri: response.uri };
+
+										console.log(source);
+										_this2._sendImage(response.uri);
+										_this2.setState({
+												avatarSource: source
+										});
+								}
+						});
+				}
+		}, {
+				key: '_sendImage',
+				value: function _sendImage(imageuri) {
+						var formData = new FormData();
+						var imgFile = { uri: imageuri, type: 'multipart/form-data', name: 'image.png' };
+						console.log(formData);
+						formData.append('imgFile', imgFile);
+
+						fetch('http://192.168.56.1:8080/upload', {
+								method: 'POST',
+								headers: {
+										'Content-Type': 'multipart/form-data'
+								},
+								body: formData
+						}).then(function (response) {
+								return response.text();
+						}).then(function (responseData) {
+								console.log('responseData', responseData);
+						}).catch(function (error) {
+								console.error('error', error);
+						});
+				}
+		}, {
+				key: 'render',
+				value: function render() {
+						var _this3 = this;
+
+						var params = this.props.navigation.state.params;
+
+						return _react2.default.createElement(
+								_reactNative.View,
+								{ style: styles.container, __source: {
+												fileName: _jsxFileName,
+												lineNumber: 107
+										}
+								},
+								_react2.default.createElement(
+										_reactNative.View,
+										{ style: styles.msgContainer, __source: {
+														fileName: _jsxFileName,
+														lineNumber: 108
+												}
+										},
+										_react2.default.createElement(_reactNative.FlatList, {
+												data: this.state.data,
+												renderItem: function renderItem(_ref) {
+														var item = _ref.item;
+														return _react2.default.createElement(
+																_reactNative.View,
+																{
+																		__source: {
+																				fileName: _jsxFileName,
+																				lineNumber: 112
+																		}
+																},
+																_react2.default.createElement(
+																		_reactNative.View,
+																		{ style: { backgroundColor: "bisque", flexDirection: "row", justifyContent: "flex-start" }, __source: {
+																						fileName: _jsxFileName,
+																						lineNumber: 113
+																				}
+																		},
+																		_react2.default.createElement(_reactNative.Image, { source: require(466                        ), style: styles.msgAvatar, __source: { // 466 = ../../res/images/logo.png
+																						fileName: _jsxFileName,
+																						lineNumber: 114
+																				}
+																		}),
+																		_react2.default.createElement(
+																				_reactNative.Text,
+																				{ style: { padding: 10, marginRight: 76 }, __source: {
+																								fileName: _jsxFileName,
+																								lineNumber: 115
+																						}
+																				},
+																				'\u6211\u5C31\u662F--',
+																				item.key,
+																				' ',
+																				_this3.state.text
+																		),
+																		_react2.default.createElement(_reactNative.Image, { source: _this3.state.avatarSource, style: { width: 100, height: 100 }, __source: {
+																						fileName: _jsxFileName,
+																						lineNumber: 116
+																				}
+																		})
+																),
+																_react2.default.createElement(
+																		_reactNative.View,
+																		{ style: { backgroundColor: "brown", flexDirection: "row", justifyContent: "flex-end" }, __source: {
+																						fileName: _jsxFileName,
+																						lineNumber: 118
+																				}
+																		},
+																		_react2.default.createElement(_reactNative.Image, { source: _this3.state.avatarSource, style: { width: 100, height: 100 }, __source: {
+																						fileName: _jsxFileName,
+																						lineNumber: 119
+																				}
+																		}),
+																		_react2.default.createElement(
+																				_reactNative.Text,
+																				{ style: { padding: 10, marginLeft: 76 }, __source: {
+																								fileName: _jsxFileName,
+																								lineNumber: 120
+																						}
+																				},
+																				'\u6211\u5C31\u662F--',
+																				params.val,
+																				' ',
+																				_this3.state.text
+																		),
+																		_react2.default.createElement(_reactNative.Image, { source: require(466                        ), style: styles.msgAvatar, __source: { // 466 = ../../res/images/logo.png
+																						fileName: _jsxFileName,
+																						lineNumber: 121
+																				}
+																		})
+																)
+														);
+												},
+												__source: {
+														fileName: _jsxFileName,
+														lineNumber: 109
+												}
+										})
+								),
+								_react2.default.createElement(
+										_reactNative.View,
+										{ style: styles.msgInputContainer, __source: {
+														fileName: _jsxFileName,
+														lineNumber: 127
+												}
+										},
+										_react2.default.createElement(_autoTextInput2.default, {
+												style: { flex: 1 },
+												placeholder: 'Type here to translate!',
+												onChangeText: function onChangeText(text) {
+														return _this3.setState({ text: text });
+												},
+												__source: {
+														fileName: _jsxFileName,
+														lineNumber: 128
+												}
+										}),
+										_react2.default.createElement(
+												_reactNative.View,
+												{ style: { width: 60, height: 40, margin: 3 }, __source: {
+																fileName: _jsxFileName,
+																lineNumber: 133
+														}
+												},
+												_react2.default.createElement(_reactNative.Button, {
+														onPress: function onPress() {
+																return _this3._sendMessage(_this3.state.text);
+														},
+														title: '\u53D1\u9001', __source: {
+																fileName: _jsxFileName,
+																lineNumber: 134
+														}
+												})
+										),
+										_react2.default.createElement(
+												_reactNative.View,
+												{ style: { width: 40, height: 40, margin: 3 }, __source: {
+																fileName: _jsxFileName,
+																lineNumber: 138
+														}
+												},
+												_react2.default.createElement(_reactNative.Button, {
+														onPress: function onPress() {
+																return _this3._selectImageFile();
+														},
+														title: '+', __source: {
+																fileName: _jsxFileName,
+																lineNumber: 139
+														}
+												})
+										)
+								)
+						);
+				}
+		}]);
+		return HomeTwo;
 }(_react.Component);
 
-HomeTwo.navigationOptions = function (_ref) {
-  var navigation = _ref.navigation;
-  return {
-    title: navigation.state.params.val,
-    tabBarVisible: false
-  };
+HomeTwo.navigationOptions = function (_ref2) {
+		var navigation = _ref2.navigation;
+		return {
+				title: navigation.state.params.val,
+				tabBarVisible: false
+		};
 };
 
 exports.default = HomeTwo;
+
+
+var styles = _reactNative.StyleSheet.create({
+		container: {
+				flex: 1,
+				flexDirection: 'column',
+				justifyContent: "space-between",
+				backgroundColor: "red"
+		},
+		msgContainer: {
+				flex: 1,
+				backgroundColor: "#eee"
+		},
+		msgAvatar: {
+				width: 28,
+				height: 28,
+				borderRadius: 28,
+				margin: 5
+		},
+		msgInputContainer: {
+				backgroundColor: "bisque",
+
+				flexDirection: 'row',
+				justifyContent: "space-between",
+				alignItems: 'flex-end'
+		}
+});
 }, 463, null, "cmrh/app/ui/msg/room.js");
+__d(/* react-native-image-picker/index.js */function(global, require, module, exports) {'use strict';
+
+var _require = require(26            ), // 26 = react-native
+    NativeModules = _require.NativeModules;
+
+var ImagePickerManager = NativeModules.ImagePickerManager;
+
+
+var DEFAULT_OPTIONS = {
+  title: 'Select a Photo',
+  cancelButtonTitle: 'Cancel',
+  takePhotoButtonTitle: 'Take Photo…',
+  chooseFromLibraryButtonTitle: 'Choose from Library…',
+  quality: 1.0,
+  allowsEditing: false,
+  permissionDenied: {
+    title: 'Permission denied',
+    text: 'To be able to take pictures with your camera and choose images from your library.',
+    reTryTitle: 're-try',
+    okTitle: 'I\'m sure'
+  }
+};
+
+module.exports = babelHelpers.extends({}, ImagePickerManager, {
+  showImagePicker: function showImagePicker(options, callback) {
+    if (typeof options === 'function') {
+      callback = options;
+      options = {};
+    }
+    return ImagePickerManager.showImagePicker(babelHelpers.extends({}, DEFAULT_OPTIONS, options), callback);
+  }
+});
+}, 464, null, "react-native-image-picker/index.js");
+__d(/* cmrh/app/common/autoTextInput.js */function(global, require, module, exports) {Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+var _jsxFileName = 'E:\\NativeApp\\cmrh\\app\\common\\autoTextInput.js';
+
+var _react = require(12     ); // 12 = react
+
+var _react2 = babelHelpers.interopRequireDefault(_react);
+
+var _reactNative = require(26            ); // 26 = react-native
+
+var AutoExpandingTextInput = function (_Component) {
+    babelHelpers.inherits(AutoExpandingTextInput, _Component);
+
+    function AutoExpandingTextInput(props) {
+        babelHelpers.classCallCheck(this, AutoExpandingTextInput);
+
+        var _this = babelHelpers.possibleConstructorReturn(this, (AutoExpandingTextInput.__proto__ || Object.getPrototypeOf(AutoExpandingTextInput)).call(this, props));
+
+        _this.state = {
+            text: '',
+            lines: 2
+        };
+        _this.onChange = _this.onChange.bind(_this);
+        return _this;
+    }
+
+    babelHelpers.createClass(AutoExpandingTextInput, [{
+        key: 'onChange',
+        value: function onChange(event) {
+            console.log(event.nativeEvent);
+            var height = event.nativeEvent.contentSize.height;
+            lines = parseInt((height - 39) / 16.5) + 1;
+            console.log(lines);
+            if (lines <= 2) {
+                lines = 2;
+            }
+            if (lines > 6) {
+                lines = 6;
+            }
+            this.setState({
+                text: event.nativeEvent.text,
+                lines: lines
+            });
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            return _react2.default.createElement(_reactNative.TextInput, babelHelpers.extends({}, this.props, {
+                multiline: true,
+                editable: true,
+                maxLength: 4000,
+                numberOfLines: this.state.lines,
+                onChange: this.onChange,
+                value: this.state.text,
+                __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 36
+                }
+            }));
+        }
+    }]);
+    return AutoExpandingTextInput;
+}(_react.Component);
+
+exports.default = AutoExpandingTextInput;
+}, 465, null, "cmrh/app/common/autoTextInput.js");
 __d(/* cmrh/app/res/images/logo.png */function(global, require, module, exports) {module.exports=require(259                                         ).registerAsset({"__packager_asset":true,"httpServerLocation":"/assets/app/res/images","width":200,"height":200,"scales":[1],"hash":"82b9c7a5a3f405032b1db71a25f67021","name":"logo","type":"png"}); // 259 = react-native/Libraries/Image/AssetRegistry
-}, 464, null, "cmrh/app/res/images/logo.png");
+}, 466, null, "cmrh/app/res/images/logo.png");
 __d(/* cmrh/app/ui/person/person.js */function(global, require, module, exports) {Object.defineProperty(exports, "__esModule", {
 	value: true
 });
@@ -55838,13 +56187,13 @@ var App = (0, _reactNavigation.StackNavigator)({
 	Person: { screen: person }
 });
 exports.default = App;
-}, 465, null, "cmrh/app/ui/person/person.js");
+}, 467, null, "cmrh/app/ui/person/person.js");
 __d(/* cmrh/app/res/images/home.png */function(global, require, module, exports) {module.exports=require(259                                         ).registerAsset({"__packager_asset":true,"httpServerLocation":"/assets/app/res/images","width":128,"height":128,"scales":[1],"hash":"6babdc46ad9791553ca47429dad957a0","name":"home","type":"png"}); // 259 = react-native/Libraries/Image/AssetRegistry
-}, 466, null, "cmrh/app/res/images/home.png");
+}, 468, null, "cmrh/app/res/images/home.png");
 __d(/* cmrh/app/res/images/warn.png */function(global, require, module, exports) {module.exports=require(259                                         ).registerAsset({"__packager_asset":true,"httpServerLocation":"/assets/app/res/images","width":128,"height":128,"scales":[1],"hash":"8ff7d7d23baba2c72073ed5040bbefa1","name":"warn","type":"png"}); // 259 = react-native/Libraries/Image/AssetRegistry
-}, 467, null, "cmrh/app/res/images/warn.png");
+}, 469, null, "cmrh/app/res/images/warn.png");
 __d(/* cmrh/app/res/images/person.png */function(global, require, module, exports) {module.exports=require(259                                         ).registerAsset({"__packager_asset":true,"httpServerLocation":"/assets/app/res/images","width":128,"height":128,"scales":[1],"hash":"3621374944d8995d9c6bcdadd89aec6d","name":"person","type":"png"}); // 259 = react-native/Libraries/Image/AssetRegistry
-}, 468, null, "cmrh/app/res/images/person.png");
+}, 470, null, "cmrh/app/res/images/person.png");
 ;require(120);
 ;require(0);
 //# sourceMappingURL=/index.android.map
