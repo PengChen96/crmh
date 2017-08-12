@@ -10,27 +10,22 @@ export default class HomeTwo extends Component {
   });
   constructor(props) {
     super(props);
-    this.state = {text: '',
-	    data:[{key: '一'},
-						{key: '二'},
-						{key: '三'},
-						{key: '四'},
-						{key: '五'},
-						{key: '六'},
-						{key: '七'},
-						{key: '八'},
-						{key: '九'},
-						{key: '十'},
-					]};
+    this.state = {text:'', msgList:[]};
   }
   
   componentDidMount() {
-		ws = new WebSocket("ws://119.23.209.74:8000/");
+		ws = new WebSocket("ws://10.231.1.77:8000/");
+//		ws = new WebSocket("ws://119.23.209.74:8000/");
 		ws.onopen = () => {
 		  console.log("connected");
 		};
 		ws.onmessage = (e) => {
-		  console.log(e);
+			//更新数组
+			let {msgList} = this.state;
+		  msgList.push({msg: e.data});
+		  this.setState({ msgList });
+		  
+		  console.log(e.data);
 		};
 		ws.onerror = (e) => {
 		  console.log(e.message);
@@ -40,9 +35,13 @@ export default class HomeTwo extends Component {
 		};
   }
   _sendMessage(msg){
-  	ws.send(msg);
-  	this.state.data.push("111");
-  	console.log(this.data);
+		ws.send(msg);
+  	//更新数组
+  	let {msgList} = this.state;
+	  msgList.push({msg: this.state.text});
+	  this.setState({ msgList });
+	  //滚到底部
+	  this.refs.msgFlatList.scrollToEnd();
   }
 
   _selectImageFile(){
@@ -100,20 +99,29 @@ export default class HomeTwo extends Component {
     })
     .catch((error)=>{console.error('error',error)});
   }
- 
+  
+  _keyExtractor = (item, index) => index;
+  _onRefresh = () => alert('已经是没有消息了！');
+  _onEndReached = () => alert('已经是最底部了！');
   render() {
 	  const {params} = this.props.navigation.state;
     return (
       <View style={styles.container}>
       	<View  style={styles.msgContainer}>
       		<FlatList
-					  data={this.state.data}
+      			ref="msgFlatList"
+					  data={this.state.msgList}
 					  extraData={this.state}
+					  keyExtractor={this._keyExtractor}
+					  onRefresh={this._onRefresh}
+					  refreshing={false}
+					  onEndReached={this._onEndReached}
+					  onEndReachedThreshold={0}
 					  renderItem={ ({item}) => 
 					  	<View>
 					  		<View style={{backgroundColor:"bisque",flexDirection:"row",justifyContent:"flex-start"}}>
 					  			<Image source={require('../../res/images/logo.png')} style={styles.msgAvatar}/>
-							  	<Text style={{padding:10,marginRight:76}}>我就是--{item.key} {this.state.text}</Text>
+							  	<Text style={{padding:10,marginRight:76}}>我就是--{item.msg} </Text>
 							  	<Image source={this.state.avatarSource} style={{width:100,height:100}} />
 						  	</View>
 						  	<View style={{backgroundColor:"brown",flexDirection:"row",justifyContent:"flex-end"}}>

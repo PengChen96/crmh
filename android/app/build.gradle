@@ -113,7 +113,7 @@ android {
     }
     signingConfigs {
         release {
-            storeFile file('E:/NativeApp/cmrh/android/app/peng-release.keystore')
+            storeFile file('./peng-release.keystore')
             storePassword 'cmrhpc'
             keyAlias 'peng-alias'
             keyPassword 'cmrhpc'
