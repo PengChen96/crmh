@@ -159,3 +159,8 @@ const Tabs = TabNavigator({
   }
 });
 ```
+### 三. 图片选择（可调用camera） `react-native-image-picker`
+0. 项目地址  
+https://github.com/react-community/react-navigation
+1. 下载  
+`npm install react-native-image-picker@latest --save`
