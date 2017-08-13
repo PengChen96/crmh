@@ -105,9 +105,9 @@ https://github.com/react-community/react-navigation
 1. 下载  
 `npm install react-navigation --save`
 #### `TabNavigator`
-导入：  
-`import { TabNavigator } from 'react-navigation';`
-使用：  
+导入：
+`import { TabNavigator } from 'react-navigation';`  
+使用：
 ```javascript
 const Tabs = TabNavigator({
   Home: {
