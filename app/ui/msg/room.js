@@ -10,7 +10,7 @@ export default class HomeTwo extends Component {
   });
   constructor(props) {
     super(props);
-    this.state = {text:'', msgList:[]};
+    this.state = {text:'', msgList:[]};		// false：表示自己发送的; true：表示别人发送的
   }
   
   componentDidMount() {
@@ -35,11 +35,12 @@ export default class HomeTwo extends Component {
 		};
   }
   _sendMessage(msg){
-		ws.send(msg);
+//		ws.send(msg);
   	//更新数组
   	let {msgList} = this.state;
-	  msgList.push({msg: this.state.text});
+	  msgList.push({msg: this.state.text,type: false});
 	  this.setState({ msgList });
+	  console.log(this.state);
 	  //滚到底部
 	  this.refs.msgFlatList.scrollToEnd();
   }
@@ -117,18 +118,21 @@ export default class HomeTwo extends Component {
 					  refreshing={false}
 					  onEndReached={this._onEndReached}
 					  onEndReachedThreshold={0}
-					  renderItem={ ({item}) => 
+					  renderItem={ ({item}) =>
 					  	<View>
-					  		<View style={{backgroundColor:"bisque",flexDirection:"row",justifyContent:"flex-start"}}>
-					  			<Image source={require('../../res/images/logo.png')} style={styles.msgAvatar}/>
-							  	<Text style={{padding:10,marginRight:76}}>我就是--{item.msg} </Text>
-							  	<Image source={this.state.avatarSource} style={{width:100,height:100}} />
-						  	</View>
-						  	<View style={{backgroundColor:"brown",flexDirection:"row",justifyContent:"flex-end"}}>
-						  		<Image source={this.state.avatarSource} style={{width:100,height:100}} />
-							  	<Text style={{padding:10,marginLeft:76}}>我就是--{params.val} {this.state.text}</Text>
-							  	<Image source={require('../../res/images/logo.png')} style={styles.msgAvatar}/>
-						  	</View>
+						  	{item.type?
+						  		<View style={{backgroundColor:"bisque",flexDirection:"row",justifyContent:"flex-start"}}>
+						  			<Image source={require('../../res/images/logo.png')} style={styles.msgAvatar}/>
+								  	<Text style={{padding:10,marginRight:76}}>我就是--{item.msg} </Text>
+								  	<Image source={this.state.avatarSource} style={{width:100,height:100}} />
+							  	</View>
+							  	:
+							  	<View style={{backgroundColor:"brown",flexDirection:"row",justifyContent:"flex-end"}}>
+							  		<Image source={this.state.avatarSource} style={{width:100,height:100}} />
+								  	<Text style={{padding:10,marginLeft:76}}>我就是--{item.msg} </Text>
+								  	<Image source={require('../../res/images/logo.png')} style={styles.msgAvatar}/>
+							  	</View>
+							  }
 					  	</View>
 					  }
 				  />
@@ -164,7 +168,7 @@ const styles = StyleSheet.create({
   },
   msgContainer: {
 	  flex:1,
-  	backgroundColor:"#eee"
+  	backgroundColor:"#eee",
   },
   msgAvatar:{
   	width:28,
