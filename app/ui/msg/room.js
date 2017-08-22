@@ -14,7 +14,8 @@ export default class HomeTwo extends Component {
   }
   
   componentDidMount() {
-		ws = new WebSocket("ws://10.231.1.77:8000/");
+  	ws = new WebSocket("ws://192.168.56.1:8000/");
+//		ws = new WebSocket("ws://10.231.1.77:8000/");
 //		ws = new WebSocket("ws://119.23.209.74:8000/");
 		ws.onopen = () => {
 		  console.log("connected");
@@ -22,9 +23,10 @@ export default class HomeTwo extends Component {
 		ws.onmessage = (e) => {
 			//更新数组
 			let {msgList} = this.state;
-		  msgList.push({msg: e.data});
+		  msgList.push({msg: e.data,type: true});
 		  this.setState({ msgList });
-		  
+		  //滚到底部
+		  setTimeout(() => this.refs.msgFlatList.scrollToEnd(), 100);
 		  console.log(e.data);
 		};
 		ws.onerror = (e) => {
@@ -35,14 +37,15 @@ export default class HomeTwo extends Component {
 		};
   }
   _sendMessage(msg){
-//		ws.send(msg);
+		ws.send(msg);
   	//更新数组
   	let {msgList} = this.state;
 	  msgList.push({msg: this.state.text,type: false});
 	  this.setState({ msgList });
 	  console.log(this.state);
 	  //滚到底部
-	  this.refs.msgFlatList.scrollToEnd();
+//	  this.refs.msgFlatList.scrollToEnd();
+	  setTimeout(() => this.refs.msgFlatList.scrollToEnd(), 100);
   }
 
   _selectImageFile(){
