@@ -10,7 +10,8 @@ export default class HomeTwo extends Component {
   });
   constructor(props) {
     super(props);
-    this.state = {text:'', msgList:[]};		// false：表示自己发送的; true：表示别人发送的
+    this.state = {text:'', msgList:[]};		// sender false：表示自己发送的; true：表示别人发送的
+    																			// type   0： 表示img; 1: 表示txt
   }
   
   componentDidMount() {
@@ -23,7 +24,7 @@ export default class HomeTwo extends Component {
 		ws.onmessage = (e) => {
 			//更新数组
 			let {msgList} = this.state;
-		  msgList.push({msg: e.data,type: true});
+		  msgList.push({msg: e.data,sender: true});
 		  this.setState({ msgList });
 		  //滚到底部
 		  setTimeout(() => this.refs.msgFlatList.scrollToEnd(), 100);
@@ -41,10 +42,10 @@ export default class HomeTwo extends Component {
   	ws.close(1000,"exit normal");
   }
   _sendMessage(msg){
-		ws.send(msg);
+//		ws.send(msg);
   	//更新数组
   	let {msgList} = this.state;
-	  msgList.push({msg: this.state.text,type: false});
+	  msgList.push({msg: this.state.text,sender: false,type:1});
 	  this.setState({ msgList });
 	  console.log(this.state);
 	  //滚到底部
@@ -82,13 +83,14 @@ export default class HomeTwo extends Component {
 		    // let source = { uri: 'data:image/jpeg;base64,' + response.data };
 				console.log(source);
 				this._sendImage(response.uri);
-		    this.setState({
-		      avatarSource: source
-		    });
+//		    this.setState({
+//		      avatarSource: source
+//		    });
 		  }
 		});
   }
   _sendImage(imageuri){
+  	let self = this;
     let formData = new FormData();
     let imgFile = {uri: imageuri,type:'multipart/form-data',name:'image.png'};
     console.log(formData);
@@ -101,8 +103,11 @@ export default class HomeTwo extends Component {
       },
       body:formData,
     })
-    .then((response)=>response.text())
+    .then((response)=>response.json())
     .then((responseData)=>{
+    	let {msgList} = self.state;
+		  msgList.push({msg: responseData.fileUrl,sender: false,type:0});
+		  self.setState({ msgList });
       console.log('responseData',responseData);
     })
     .catch((error)=>{console.error('error',error)});
@@ -110,7 +115,7 @@ export default class HomeTwo extends Component {
   
   _keyExtractor = (item, index) => index;
   _onRefresh = () => alert('已经是没有消息了！');
-  _onEndReached = () => alert('已经是最底部了！');
+//_onEndReached = () => alert('已经是最底部了！');
   render() {
 	  const {params} = this.props.navigation.state;
     return (
@@ -123,20 +128,26 @@ export default class HomeTwo extends Component {
 					  keyExtractor={this._keyExtractor}
 					  onRefresh={this._onRefresh}
 					  refreshing={false}
-					  onEndReached={this._onEndReached}
+//					  onEndReached={this._onEndReached}
 					  onEndReachedThreshold={0}
 					  renderItem={ ({item}) =>
 					  	<View>
-						  	{item.type?
+						  	{item.sender?
 						  		<View style={{backgroundColor:"bisque",flexDirection:"row",justifyContent:"flex-start"}}>
 						  			<Image source={require('../../res/images/logo.png')} style={styles.msgAvatar}/>
-								  	<Text style={{padding:10,marginRight:76}}>我就是--{item.msg} </Text>
-								  	<Image source={this.state.avatarSource} style={{width:100,height:100}} />
+								  	{item.type==0?
+							  			<Image source={{uri:item.msg}} style={{width:100,height:100}} />
+								  		:
+								  		<Text style={{padding:10,marginRight:76}}>我就是--{item.msg} </Text>
+								  	}
 							  	</View>
 							  	:
 							  	<View style={{backgroundColor:"brown",flexDirection:"row",justifyContent:"flex-end"}}>
-							  		<Image source={this.state.avatarSource} style={{width:100,height:100}} />
-								  	<Text style={{padding:10,marginLeft:76}}>我就是--{item.msg} </Text>
+							  		{item.type==0?
+							  			<Image source={{uri:item.msg}} style={{width:100,height:100}} />
+								  		:
+								  		<Text style={{padding:10,marginRight:76}}>我就是--{item.msg} </Text>
+								  	}
 								  	<Image source={require('../../res/images/logo.png')} style={styles.msgAvatar}/>
 							  	</View>
 							  }
