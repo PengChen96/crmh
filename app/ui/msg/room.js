@@ -105,9 +105,12 @@ export default class HomeTwo extends Component {
     })
     .then((response)=>response.json())
     .then((responseData)=>{
+    	
     	let {msgList} = self.state;
 		  msgList.push({msg: responseData.fileUrl,sender: false,type:0});
 		  self.setState({ msgList });
+		  setTimeout(() => this.refs.msgFlatList.scrollToEnd(), 1000);
+		  
       console.log('responseData',responseData);
     })
     .catch((error)=>{console.error('error',error)});
