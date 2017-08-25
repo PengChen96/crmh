@@ -146,7 +146,7 @@ export default class HomeTwo extends Component {
 							  		{item.type==0?
 							  			<Image source={{uri:item.msg}} style={{width:100,height:100}} />
 								  		:
-								  		<Text style={{padding:10,marginRight:76}}>我就是--{item.msg} </Text>
+								  		<Text style={{padding:10,marginLeft:76}}>我就是--{item.msg} </Text>
 								  	}
 								  	<Image source={require('../../res/images/logo.png')} style={styles.msgAvatar}/>
 							  	</View>
