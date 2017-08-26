@@ -14,7 +14,7 @@ class home extends Component {
 			    backgroundColor="#1878fb"
 			    barStyle="light-content"
 			  />
-			  <Image source={{uri:'https://facebook.github.io/react/img/logo_og.png'}} style={{width:100,height:100}} />
+			  
 			</View>
 		)
 	}
