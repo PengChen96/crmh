@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
-import { Text,Image,View,Button,StatusBar } from 'react-native';
+import { Text,Image,View,Button,StatusBar,FlatList } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 
 class home extends Component {
 	static navigationOptions = {
 	    headerTitle: '首页',
 	};
+	_onRefresh = () => alert('已经是没有消息了！');
 	render(){
 		return(
 			<View>
@@ -15,6 +16,27 @@ class home extends Component {
 			    barStyle="light-content"
 			  />
 			  
+			  <FlatList
+				  data={[
+				    {key: '一'},
+						{key: '二'},
+						{key: '三'},
+						{key: '四'},
+						{key: '五'},
+						{key: '六'},
+						{key: '七'},
+						{key: '八'},
+						{key: '九'},
+						{key: '十'},
+					]}
+				  onRefresh={this._onRefresh}
+				  refreshing={false}
+				  renderItem={ ({item}) => 
+				  	<View>
+					  	<Text>{item.key}</Text>
+				  	</View>
+				  }
+		    />
 			</View>
 		)
 	}

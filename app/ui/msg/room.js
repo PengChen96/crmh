@@ -97,7 +97,7 @@ export default class HomeTwo extends Component {
     console.log(formData);
     formData.append('imgFile',imgFile);
 		//  http://119.23.209.74:8080/upload
-    fetch('http://192.168.56.1:8080/upload',{
+    fetch('http://10.231.1.151:8080/upload',{
       method:'POST',
       headers:{
         'Content-Type':'multipart/form-data',
