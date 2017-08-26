@@ -37,14 +37,11 @@ export default class HomeTwo extends Component {
 		  console.log(e.code, e.reason);
 		};
   }
-<<<<<<< HEAD
 
-=======
   //销毁&清理期
   componentWillUnmount(){
   	ws.close(1000,"exit normal");
   }
->>>>>>> 707dc5fe59d4ac2ca3c01cdc962abc2ba205a746
   _sendMessage(msg){
 //		ws.send(msg);
   	//更新数组
