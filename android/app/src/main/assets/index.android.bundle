@@ -55748,20 +55748,39 @@ var HomeTwo = function (_Component) {
 
 				var _this = babelHelpers.possibleConstructorReturn(this, (HomeTwo.__proto__ || Object.getPrototypeOf(HomeTwo)).call(this, props));
 
-				_this.state = { text: '',
-						data: [{ key: '一' }, { key: '二' }, { key: '三' }, { key: '四' }, { key: '五' }, { key: '六' }, { key: '七' }, { key: '八' }, { key: '九' }, { key: '十' }] };
+				_this._keyExtractor = function (item, index) {
+						return index;
+				};
+
+				_this._onRefresh = function () {
+						return alert('已经是没有消息了！');
+				};
+
+				_this._onEndReached = function () {
+						return alert('已经是最底部了！');
+				};
+
+				_this.state = { text: '', msgList: [] };
 				return _this;
 		}
 
 		babelHelpers.createClass(HomeTwo, [{
 				key: 'componentDidMount',
 				value: function componentDidMount() {
-						ws = new WebSocket("ws://119.23.209.74:8000/");
+						var _this2 = this;
+
+						ws = new WebSocket("ws://10.231.1.77:8000/");
+
 						ws.onopen = function () {
 								console.log("connected");
 						};
 						ws.onmessage = function (e) {
-								console.log(e);
+								var msgList = _this2.state.msgList;
+
+								msgList.push({ msg: e.data });
+								_this2.setState({ msgList: msgList });
+
+								console.log(e.data);
 						};
 						ws.onerror = function (e) {
 								console.log(e.message);
@@ -55774,13 +55793,17 @@ var HomeTwo = function (_Component) {
 				key: '_sendMessage',
 				value: function _sendMessage(msg) {
 						ws.send(msg);
-						this.state.data.push("111");
-						console.log(this.data);
+						var msgList = this.state.msgList;
+
+						msgList.push({ msg: this.state.text });
+						this.setState({ msgList: msgList });
+
+						this.refs.msgFlatList.scrollToEnd();
 				}
 		}, {
 				key: '_selectImageFile',
 				value: function _selectImageFile() {
-						var _this2 = this;
+						var _this3 = this;
 
 						options = {
 								title: 'Select Avatar',
@@ -55803,8 +55826,8 @@ var HomeTwo = function (_Component) {
 										var source = { uri: response.uri };
 
 										console.log(source);
-										_this2._sendImage(response.uri);
-										_this2.setState({
+										_this3._sendImage(response.uri);
+										_this3.setState({
 												avatarSource: source
 										});
 								}
@@ -55835,7 +55858,7 @@ var HomeTwo = function (_Component) {
 		}, {
 				key: 'render',
 				value: function render() {
-						var _this3 = this;
+						var _this4 = this;
 
 						var params = this.props.navigation.state.params;
 
@@ -55843,19 +55866,25 @@ var HomeTwo = function (_Component) {
 								_reactNative.View,
 								{ style: styles.container, __source: {
 												fileName: _jsxFileName,
-												lineNumber: 107
+												lineNumber: 109
 										}
 								},
 								_react2.default.createElement(
 										_reactNative.View,
 										{ style: styles.msgContainer, __source: {
 														fileName: _jsxFileName,
-														lineNumber: 108
+														lineNumber: 110
 												}
 										},
 										_react2.default.createElement(_reactNative.FlatList, {
-												data: this.state.data,
+												ref: 'msgFlatList',
+												data: this.state.msgList,
 												extraData: this.state,
+												keyExtractor: this._keyExtractor,
+												onRefresh: this._onRefresh,
+												refreshing: false,
+												onEndReached: this._onEndReached,
+												onEndReachedThreshold: 0,
 												renderItem: function renderItem(_ref) {
 														var item = _ref.item;
 														return _react2.default.createElement(
@@ -55863,36 +55892,35 @@ var HomeTwo = function (_Component) {
 																{
 																		__source: {
 																				fileName: _jsxFileName,
-																				lineNumber: 113
+																				lineNumber: 121
 																		}
 																},
 																_react2.default.createElement(
 																		_reactNative.View,
 																		{ style: { backgroundColor: "bisque", flexDirection: "row", justifyContent: "flex-start" }, __source: {
 																						fileName: _jsxFileName,
-																						lineNumber: 114
+																						lineNumber: 122
 																				}
 																		},
 																		_react2.default.createElement(_reactNative.Image, { source: require(466                        ), style: styles.msgAvatar, __source: { // 466 = ../../res/images/logo.png
 																						fileName: _jsxFileName,
-																						lineNumber: 115
+																						lineNumber: 123
 																				}
 																		}),
 																		_react2.default.createElement(
 																				_reactNative.Text,
 																				{ style: { padding: 10, marginRight: 76 }, __source: {
 																								fileName: _jsxFileName,
-																								lineNumber: 116
+																								lineNumber: 124
 																						}
 																				},
 																				'\u6211\u5C31\u662F--',
-																				item.key,
-																				' ',
-																				_this3.state.text
+																				item.msg,
+																				' '
 																		),
-																		_react2.default.createElement(_reactNative.Image, { source: _this3.state.avatarSource, style: { width: 100, height: 100 }, __source: {
+																		_react2.default.createElement(_reactNative.Image, { source: _this4.state.avatarSource, style: { width: 100, height: 100 }, __source: {
 																						fileName: _jsxFileName,
-																						lineNumber: 117
+																						lineNumber: 125
 																				}
 																		})
 																),
@@ -55900,29 +55928,29 @@ var HomeTwo = function (_Component) {
 																		_reactNative.View,
 																		{ style: { backgroundColor: "brown", flexDirection: "row", justifyContent: "flex-end" }, __source: {
 																						fileName: _jsxFileName,
-																						lineNumber: 119
+																						lineNumber: 127
 																				}
 																		},
-																		_react2.default.createElement(_reactNative.Image, { source: _this3.state.avatarSource, style: { width: 100, height: 100 }, __source: {
+																		_react2.default.createElement(_reactNative.Image, { source: _this4.state.avatarSource, style: { width: 100, height: 100 }, __source: {
 																						fileName: _jsxFileName,
-																						lineNumber: 120
+																						lineNumber: 128
 																				}
 																		}),
 																		_react2.default.createElement(
 																				_reactNative.Text,
 																				{ style: { padding: 10, marginLeft: 76 }, __source: {
 																								fileName: _jsxFileName,
-																								lineNumber: 121
+																								lineNumber: 129
 																						}
 																				},
 																				'\u6211\u5C31\u662F--',
 																				params.val,
 																				' ',
-																				_this3.state.text
+																				_this4.state.text
 																		),
 																		_react2.default.createElement(_reactNative.Image, { source: require(466                        ), style: styles.msgAvatar, __source: { // 466 = ../../res/images/logo.png
 																						fileName: _jsxFileName,
-																						lineNumber: 122
+																						lineNumber: 130
 																				}
 																		})
 																)
@@ -55930,7 +55958,7 @@ var HomeTwo = function (_Component) {
 												},
 												__source: {
 														fileName: _jsxFileName,
-														lineNumber: 109
+														lineNumber: 111
 												}
 										})
 								),
@@ -55938,34 +55966,34 @@ var HomeTwo = function (_Component) {
 										_reactNative.View,
 										{ style: styles.msgInputContainer, __source: {
 														fileName: _jsxFileName,
-														lineNumber: 128
+														lineNumber: 136
 												}
 										},
 										_react2.default.createElement(_autoTextInput2.default, {
 												style: { flex: 1 },
 												placeholder: 'Type here to translate!',
 												onChangeText: function onChangeText(text) {
-														return _this3.setState({ text: text });
+														return _this4.setState({ text: text });
 												},
 												__source: {
 														fileName: _jsxFileName,
-														lineNumber: 129
+														lineNumber: 137
 												}
 										}),
 										_react2.default.createElement(
 												_reactNative.View,
 												{ style: { width: 60, height: 40, margin: 3 }, __source: {
 																fileName: _jsxFileName,
-																lineNumber: 134
+																lineNumber: 142
 														}
 												},
 												_react2.default.createElement(_reactNative.Button, {
 														onPress: function onPress() {
-																return _this3._sendMessage(_this3.state.text);
+																return _this4._sendMessage(_this4.state.text);
 														},
 														title: '\u53D1\u9001', __source: {
 																fileName: _jsxFileName,
-																lineNumber: 135
+																lineNumber: 143
 														}
 												})
 										),
@@ -55973,16 +56001,16 @@ var HomeTwo = function (_Component) {
 												_reactNative.View,
 												{ style: { width: 40, height: 40, margin: 3 }, __source: {
 																fileName: _jsxFileName,
-																lineNumber: 139
+																lineNumber: 147
 														}
 												},
 												_react2.default.createElement(_reactNative.Button, {
 														onPress: function onPress() {
-																return _this3._selectImageFile();
+																return _this4._selectImageFile();
 														},
 														title: '+', __source: {
 																fileName: _jsxFileName,
-																lineNumber: 140
+																lineNumber: 148
 														}
 												})
 										)

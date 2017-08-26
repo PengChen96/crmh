@@ -34,6 +34,7 @@ export default class HomeTwo extends Component {
 		  console.log(e.code, e.reason);
 		};
   }
+
   _sendMessage(msg){
 //		ws.send(msg);
   	//更新数组
@@ -103,7 +104,7 @@ export default class HomeTwo extends Component {
   
   _keyExtractor = (item, index) => index;
   _onRefresh = () => alert('已经是没有消息了！');
-  _onEndReached = () => alert('已经是最底部了！');
+//_onEndReached = () => alert('已经是最底部了！');
   render() {
 	  const {params} = this.props.navigation.state;
     return (
