@@ -8,6 +8,7 @@ export default class HomeTwo extends Component {
   	title:navigation.state.params.val,
 		tabBarVisible: false
   });
+  
   constructor(props) {
     super(props);
     this.state = {text:'', msgList:[]};		// sender false：表示自己发送的; true：表示别人发送的
@@ -38,6 +39,25 @@ export default class HomeTwo extends Component {
 		};
   }
 
+//componentWillReceiveProps(){
+//	this.state.msgList = this.state.msgList.slice(); 
+//	console.log("1");
+//	this.refs.msgFlatList.scrollToEnd();
+//}
+//shouldComponentUpdate(){
+//	console.log("2");
+//	return true;
+//}
+//componentWillUpdate(){
+//	this.state.msgList = this.state.msgList.slice(); 
+//	console.log("3");
+//	this.refs.msgFlatList.scrollToEnd();
+//}
+//componentDidUpdate(){
+//	this.state.msgList = this.state.msgList.slice(); 
+//	console.log("4");
+//	this.refs.msgFlatList.scrollToEnd();
+//}
   //销毁&清理期
   componentWillUnmount(){
   	ws.close(1000,"exit normal");
@@ -47,6 +67,7 @@ export default class HomeTwo extends Component {
   	//更新数组
   	let {msgList} = this.state;
 	  msgList.push({msg: this.state.text,sender: false,type:1});
+//	  msgList = msgList.slice();
 	  this.setState({ msgList });
 	  console.log(this.state);
 	  //滚到底部
