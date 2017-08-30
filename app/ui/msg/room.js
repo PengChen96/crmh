@@ -77,10 +77,13 @@ export default class HomeTwo extends Component {
 
   _selectImageFile(){
   	options = {
-		  title: 'Select Avatar',
-		  customButtons: [
-		    {name: 'fb', title: 'Choose Photo from Facebook'},
-		  ],
+		  title: '选择一张图片',
+		  cancelButtonTitle: '取消',
+		  takePhotoButtonTitle: '拍照..',
+		  chooseFromLibraryButtonTitle: '相册..',
+//		  customButtons: [
+//		    {name: 'fb', title: 'Choose Photo from Facebook'},
+//		  ],
 		  storageOptions: {
 		    skipBackup: true,
 		    path: 'images'
@@ -156,22 +159,28 @@ export default class HomeTwo extends Component {
 //					  onEndReached={this._onEndReached}
 					  onEndReachedThreshold={0}
 					  renderItem={ ({item}) =>
-					  	<View>
+					  	<View style={{marginTop:5}}>
 						  	{item.sender?
-						  		<View style={{backgroundColor:"bisque",flexDirection:"row",justifyContent:"flex-start"}}>
+						  		<View style={{flexDirection:"row",justifyContent:"flex-start"}}>
 						  			<Image source={require('../../res/images/logo.png')} style={styles.msgAvatar}/>
 								  	{item.type==0?
 							  			<Image source={{uri:item.msg}} style={{width:100,height:100}} />
 								  		:
-								  		<Text style={{padding:10,marginRight:76}}>我就是--{item.msg} </Text>
+								  		<View style={{padding:10,marginRight:76}}>
+									  		<Text style={{fontSize:12,lineHeight:14,color:"#999"}}>Taylor Swift --- 8/30 13:00 {'\n'}</Text>
+								  			<Text style={styles.msgOther}>Message-{item.msg} </Text>
+								  		</View>
 								  	}
 							  	</View>
 							  	:
-							  	<View style={{backgroundColor:"brown",flexDirection:"row",justifyContent:"flex-end"}}>
+							  	<View style={{flexDirection:"row",justifyContent:"flex-end"}}>
 							  		{item.type==0?
 							  			<Image source={{uri:item.msg}} style={{width:100,height:100}} />
 								  		:
-								  		<Text style={{padding:10,marginLeft:76}}>我就是--{item.msg} </Text>
+								  		<View style={{padding:10,marginLeft:76}}>
+									  		<Text style={{textAlign:"right",fontSize:12,lineHeight:14,color:"#999"}}>8/30 13:00 {'\n'}</Text>
+								  			<Text style={styles.msgMine}>Message-{item.msg} </Text>
+								  		</View>
 								  	}
 								  	<Image source={require('../../res/images/logo.png')} style={styles.msgAvatar}/>
 							  	</View>
@@ -207,11 +216,11 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'column',
     justifyContent: "space-between",
-    backgroundColor:"red"
+//  backgroundColor:"red"
   },
   msgContainer: {
 	  flex:1,
-  	backgroundColor:"#eee",
+  	backgroundColor:"#eee"
   },
   msgAvatar:{
   	width:28,
@@ -227,4 +236,18 @@ const styles = StyleSheet.create({
  		alignItems: 'flex-end',
 // 	height:48
   },
+  msgOther: {
+  	padding:5,
+  	borderWidth:1,
+  	borderColor:"#eee",
+  	backgroundColor:"#fff",
+  	borderRadius:3,
+  },
+  msgMine: {
+  	padding:5,
+  	borderWidth:1,
+  	borderColor:"#eee",
+  	backgroundColor:"#87ceeb",
+  	borderRadius:3,
+  }
 })
