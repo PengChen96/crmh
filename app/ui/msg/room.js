@@ -23,10 +23,21 @@ export default class HomeTwo extends Component {
 		  console.log("connected");
 		};
 		ws.onmessage = (e) => {
-			//更新数组
-			let {msgList} = this.state;
-		  msgList.push({msg: e.data,sender: true});
-		  this.setState({ msgList });
+			let prefix = e.data.split("://")[0];
+			console.log(prefix);
+			if(prefix=="http"||prefix=="https"){		//img
+				console.log("image url");
+				let {msgList} = this.state;
+			  msgList.push({msg: e.data,sender: true,type:0});
+			  this.setState({ msgList });
+			}
+			else{						// text
+				//更新数组
+				let {msgList} = this.state;
+			  msgList.push({msg: e.data,sender: true,type:1});
+			  this.setState({ msgList });
+			}
+			
 		  //滚到底部
 		  setTimeout(() => this.refs.msgFlatList.scrollToEnd(), 100);
 		  console.log(e.data);
@@ -63,7 +74,7 @@ export default class HomeTwo extends Component {
   	ws.close(1000,"exit normal");
   }
   _sendMessage(msg){
-//		ws.send(msg);
+		ws.send(msg);
   	//更新数组
   	let {msgList} = this.state;
 	  msgList.push({msg: this.state.text,sender: false,type:1});
@@ -121,7 +132,8 @@ export default class HomeTwo extends Component {
     console.log(formData);
     formData.append('imgFile',imgFile);
 		//  http://119.23.209.74:8080/upload
-    fetch('http://10.231.1.151:8080/upload',{
+		//	http://10.231.1.151:8080/upload
+    fetch('http://192.168.56.1:8080/upload',{
       method:'POST',
       headers:{
         'Content-Type':'multipart/form-data',
@@ -130,7 +142,9 @@ export default class HomeTwo extends Component {
     })
     .then((response)=>response.json())
     .then((responseData)=>{
-    	
+    	// 发送消息url
+    	ws.send(responseData.fileUrl);
+    	//
     	let {msgList} = self.state;
 		  msgList.push({msg: responseData.fileUrl,sender: false,type:0});
 		  self.setState({ msgList });
