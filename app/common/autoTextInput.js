@@ -9,7 +9,7 @@ export default class AutoExpandingTextInput extends Component {
         // 初始状态
         this.state = {
             text: '',
-            lines: 2
+            lines: 2		//默认两行
         };
         this.onChange = this.onChange.bind(this);
     }
@@ -40,6 +40,7 @@ export default class AutoExpandingTextInput extends Component {
         				numberOfLines = {this.state.lines}
                 onChange={this.onChange}
                 value={this.state.text}
+//              underlineColorAndroid="transparent"
             />
         );
     }

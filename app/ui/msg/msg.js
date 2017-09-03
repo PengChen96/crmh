@@ -5,7 +5,16 @@ import Room from './room';
 
 class msg extends Component {
 	static navigationOptions = {
-	  headerTitle: '消息列表',
+	  headerTitle: '消息',
+		headerStyle: {
+			height: 48,
+			backgroundColor: '#3b88ff',
+		},
+		headerTitleStyle: {
+			alignSelf:'center',
+			color: '#fff',
+			fontWeight: "400"
+		}
 	};
 	
 	render(){

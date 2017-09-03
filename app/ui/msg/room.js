@@ -6,7 +6,14 @@ import AutoTextInput from '../../common/autoTextInput';
 export default class HomeTwo extends Component {
   static navigationOptions = ({navigation}) => ({
   	title:navigation.state.params.val,
-		tabBarVisible: false
+		tabBarVisible: false,
+		headerStyle: {
+			height: 48,
+//			backgroundColor: '#3b88ff',
+		},
+		headerTitleStyle: {
+			fontWeight: "400"
+		}
   });
   
   constructor(props) {
@@ -16,9 +23,9 @@ export default class HomeTwo extends Component {
   }
   
   componentDidMount() {
-  	ws = new WebSocket("ws://192.168.56.1:8000/");
-//		ws = new WebSocket("ws://10.231.1.77:8000/");
-//		ws = new WebSocket("ws://119.23.209.74:8000/");
+//	ws = new WebSocket("ws://192.168.56.1:8000/");
+//	ws = new WebSocket("ws://10.231.1.77:8000/");
+		ws = new WebSocket("ws://119.23.209.74:8000/");
 		ws.onopen = () => {
 		  console.log("connected");
 		};
@@ -133,7 +140,7 @@ export default class HomeTwo extends Component {
     formData.append('imgFile',imgFile);
 		//  http://119.23.209.74:8080/upload
 		//	http://10.231.1.151:8080/upload
-    fetch('http://192.168.56.1:8080/upload',{
+    fetch('http://119.23.209.74:8080/upload',{
       method:'POST',
       headers:{
         'Content-Type':'multipart/form-data',
@@ -206,18 +213,18 @@ export default class HomeTwo extends Component {
       	<View style={styles.msgInputContainer}>
           <AutoTextInput
           	style={{flex:1}}
-	          placeholder="Type here to translate!"
+	          placeholder="输入内容..."
 	          onChangeText={(text) => this.setState({text})}
 	        />
+	        <View style={{width:40,height:40,margin:3}}>
+			    	<Button
+			    		onPress={() => this._selectImageFile()}
+			    		title="+"/>
+			    </View>
 			    <View style={{width:60,height:40,margin:3}}>
 			    	<Button
 			    		onPress={() => this._sendMessage(this.state.text)}
 			    		title="发送"/>
-			    </View>
-			    <View style={{width:40,height:40,margin:3}}>
-			    	<Button
-			    		onPress={() => this._selectImageFile()}
-			    		title="+"/>
 			    </View>
       	</View>
       </View>
@@ -243,7 +250,7 @@ const styles = StyleSheet.create({
   	margin:5
   },
   msgInputContainer: {
-  	backgroundColor: "bisque",
+		backgroundColor: "#fff",
 //  flex:1,
  		flexDirection: 'row',
  		justifyContent: "space-between",

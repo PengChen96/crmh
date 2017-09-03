@@ -4,7 +4,16 @@ import { StackNavigator } from 'react-navigation';
 
 class home extends Component {
 	static navigationOptions = {
-	    headerTitle: '首页',
+    headerTitle: '首页',
+    headerStyle: {
+			height: 48,
+			backgroundColor: '#3b88ff',
+		},
+		headerTitleStyle: {
+			alignSelf:'center',
+			color: '#fff',
+			fontWeight: "400"
+		}
 	};
 	_onRefresh = () => alert('已经是没有消息了！');
 	render(){
@@ -49,7 +58,19 @@ const App = StackNavigator({
 	mode: 'card',  // 页面切换模式, 左右是card(相当于iOS中的push效果), 上下是modal(相当于iOS中的modal效果)
 	headerMode: 'screen', // 导航栏的显示模式, screen: 有渐变透明效果, float: 无透明效果, none: 隐藏导航栏
 	onTransitionStart: ()=>{ console.log('导航栏切换开始'); },  // 回调
-	onTransitionEnd: ()=>{ console.log('导航栏切换结束'); }  // 回调
+	onTransitionEnd: ()=>{ console.log('导航栏切换结束'); },  // 回调
+//	navigationOptions: {
+//		headerTitle: '首页',
+//		headerStyle: {
+//			height: 48,
+//			backgroundColor: '#3b88ff',
+//		},
+//		headerTitleStyle: {
+//			alignSelf:'center',
+//			color: '#fff',
+//			fontWeight: "400"
+//		}
+//	}
 });
 // 导出components
 export default App;  
