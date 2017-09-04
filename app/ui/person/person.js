@@ -17,23 +17,20 @@ class person extends Component {
 			fontWeight: "400"
 		}
 	};
+	
 	render(){
 		//data: item; key(A):section;
 		const dataSource = [
-	    {data:[{name:'nader',key:'1'}],key:'A--section header'},
-	    {data:[{name:'naccc',key:'2'},{name:'nader',key:'22'},{name:'nader',key:'222'}],key:'B--section header'},
-	    {data:[{name:'nicks',key:'3'},{name:'nader',key:'33'}],key:'C--section header'}
+	    {data:[{name:'nader',key:'1'}],renderItem:this._renderTitle},
+	    {data:[{name:'naccc',key:'2'},{name:'nader',key:'22'},{name:'nader',key:'222'}],renderItem:this._renderItem},
+	    {data:[{name:'nicks',key:'3'},{name:'nader',key:'33'}],renderItem:this._renderItem}
 		];
 		return(
 			<View>
 			  <SectionList
-				  renderItem={({item}) => 
-				  	<View style={{height:40,backgroundColor:'#999'}}>
-				  		<Text>{item.name}</Text>
-				  	</View>
-				  }
+//				  renderItem={this._renderTitle}
 				  renderSectionHeader={({section}) => 
-				  	<View style={{height:20,backgroundColor:'#fff'}}>
+				  	<View style={{height:10,backgroundColor:'#eee'}}>
 				  		<Text>{section.key}</Text>
 				  	</View>
 				  }
@@ -44,6 +41,27 @@ class person extends Component {
 			</View>
 		)
 	}
+	_renderTitle = ({item}) => (
+									<View style={{height:80,paddingVertical:10,paddingHorizontal:20,backgroundColor:'#fff'}}>
+							  		<View style={{flex:1,flexDirection:'row'}}>
+							  			<View style={{width:60,height:60,borderRadius:60,backgroundColor:'#eee'}}>
+												<Image source={require('../../res/images/logo.png')} style={{width:60,height:60,borderRadius:60}}/>
+											</View>
+											<View style={{flex:1,paddingLeft:20,justifyContent: 'center'}}>
+												<Text style={{fontSize:18,lineHeight:24}}>PengChen</Text>
+												<Text>浙江杭州</Text>
+											</View>
+											<View style={{backgroundColor:'bisque'}}>
+												<Text style={{fontFamily:'',fontWeight:'bold',lineHeight:40}}> > </Text>
+											</View>
+							  		</View>
+							  	</View>
+							  	);
+	_renderItem = ({item}) => (
+									<View style={{height:40,backgroundColor:'#fff'}}>
+							  		<Text>{item.name}</Text>
+							  	</View>
+							  	);
 }
 const App = StackNavigator({
 	Person: {screen: person}
