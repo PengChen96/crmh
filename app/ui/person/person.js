@@ -51,15 +51,15 @@ class person extends Component {
 												<Text style={{fontSize:18,lineHeight:24}}>PengChen</Text>
 												<Text>浙江杭州</Text>
 											</View>
-											<View style={{backgroundColor:'bisque'}}>
-												<Text style={{fontFamily:'',fontWeight:'bold',lineHeight:40}}> > </Text>
+											<View >
+												<Text style={{fontFamily:'serif',fontWeight:'bold',color:'#999',fontSize:24,lineHeight:48}}> > </Text>
 											</View>
 							  		</View>
 							  	</View>
 							  	);
 	_renderItem = ({item}) => (
-									<View style={{height:40,backgroundColor:'#fff'}}>
-							  		<Text>{item.name}</Text>
+									<View style={{height:40,backgroundColor:'#fff',paddingVertical:5,paddingHorizontal:20}}>
+							  		<Text style={{lineHeight:30}}>{item.name}</Text>
 							  	</View>
 							  	);
 }
