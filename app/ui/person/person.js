@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { Text,Image,View,SectionList } from 'react-native';
+import { Text,Image,View,SectionList,TouchableHighlight } from 'react-native';
 import { StackNavigator } from 'react-navigation';
-
-
+// subpage
+import EditInfo from './subPage/editInfo';
 
 class person extends Component {
 	static navigationOptions = {
@@ -21,9 +21,18 @@ class person extends Component {
 	render(){
 		//data: item; key(A):section;
 		const dataSource = [
-	    {data:[{name:'nader',key:'1'}],renderItem:this._renderTitle},
-	    {data:[{name:'naccc',key:'2'},{name:'nader',key:'22'},{name:'nader',key:'222'}],renderItem:this._renderItem},
-	    {data:[{name:'nicks',key:'3'},{name:'nader',key:'33'}],renderItem:this._renderItem}
+	    {data:[
+	    	{name:'PengChen',des:'浙江杭州',key:'A1'}],renderItem:this._renderTitle},
+	    {data:[
+	    	{name:'编辑资料',key:'B1',toPage:'EditInfo'},
+	    	{name:'我的发单',key:'B2',toPage:'EditInfo'},
+	    	{name:'我的抢单',key:'B3',toPage:'EditInfo'},
+	    	{name:'我的追问',key:'B4',toPage:'EditInfo'}],renderItem:this._renderItem},
+	    {data:[
+	    	{name:'二手商城',key:'C1'}],renderItem:this._renderItem},
+	    {data:[
+	    	{name:'问题反馈',key:'D1'},
+	    	{name:'设置',key:'D2'}],renderItem:this._renderItem}
 		];
 		return(
 			<View>
@@ -48,22 +57,35 @@ class person extends Component {
 												<Image source={require('../../res/images/logo.png')} style={{width:60,height:60,borderRadius:60}}/>
 											</View>
 											<View style={{flex:1,paddingLeft:20,justifyContent: 'center'}}>
-												<Text style={{fontSize:18,lineHeight:24}}>PengChen</Text>
-												<Text>浙江杭州</Text>
+												<Text style={{fontSize:18,lineHeight:24,color:'#333'}}>{item.name}</Text>
+												<Text>{item.des}</Text>
 											</View>
-											<View >
-												<Text style={{fontFamily:'serif',fontWeight:'bold',color:'#999',fontSize:24,lineHeight:48}}> > </Text>
+											<View style={{justifyContent: 'center'}}>
+												<Text style={{fontFamily:'serif',fontWeight:'bold',color:'#d3d3d3',fontSize:24}}> > </Text>
 											</View>
 							  		</View>
 							  	</View>
 							  	);
 	_renderItem = ({item}) => (
-									<View style={{height:40,backgroundColor:'#fff',paddingVertical:5,paddingHorizontal:20}}>
-							  		<Text style={{lineHeight:30}}>{item.name}</Text>
+							<TouchableHighlight
+						  	underlayColor="#d2e6ff"
+						  	onPress={() => this.props.navigation.navigate(item.toPage,{val:item.name})}>
+									<View style={{flex:1,flexDirection:'row',height:50,backgroundColor:'#fff',paddingVertical:5,paddingHorizontal:20}}>
+										<View style={{width:40,height:40,borderRadius:40,backgroundColor:'#eee'}}>
+											<Image source={require('../../res/images/logo.png')} style={{width:40,height:40,borderRadius:40}}/>
+										</View>
+										<View style={{flex:1,paddingLeft:20,justifyContent: 'center'}}>
+											<Text style={{color:'#666'}}>{item.name}</Text>
+										</View>
+										<View style={{justifyContent: 'center'}}>
+											<Text style={{fontFamily:'serif',fontWeight:'bold',color:'#d3d3d3',fontSize:24}}> > </Text>
+										</View>
 							  	</View>
-							  	);
+						  </TouchableHighlight>
+							);
 }
 const App = StackNavigator({
-	Person: {screen: person}
+	Person: {screen: person},
+	EditInfo: {screen: EditInfo}
 })
 export default App;
