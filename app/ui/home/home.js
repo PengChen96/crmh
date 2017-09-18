@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { Text,Image,View,Button,StatusBar,FlatList } from 'react-native';
+import { StyleSheet,Text,Image,View,Button,StatusBar,FlatList } from 'react-native';
 import { StackNavigator } from 'react-navigation';
+import TopTabs from './topTabs';
 
 class home extends Component {
 	static navigationOptions = {
@@ -15,41 +16,17 @@ class home extends Component {
 			fontWeight: "400"
 		}
 	};
-	_onRefresh = () => alert('已经是没有消息了！');
 	render(){
 		return(
-			<View>
-			  <Text> hello Home !</Text>
-			  <StatusBar
-			    backgroundColor="#1878fb"
-			    barStyle="light-content"
-			  />
-			  
-			  <FlatList
-				  data={[
-				    {key: '一'},
-						{key: '二'},
-						{key: '三'},
-						{key: '四'},
-						{key: '五'},
-						{key: '六'},
-						{key: '七'},
-						{key: '八'},
-						{key: '九'},
-						{key: '十'},
-					]}
-				  onRefresh={this._onRefresh}
-				  refreshing={false}
-				  renderItem={ ({item}) => 
-				  	<View>
-					  	<Text>{item.key}</Text>
-				  	</View>
-				  }
-		    />
-			</View>
+//			  <StatusBar
+//			    backgroundColor="#1878fb"
+//			    barStyle="light-content"
+//			  />
+			  <TopTabs/>
 		)
 	}
 }
+
 // 注册导航
 const App = StackNavigator({
 	Home: {screen: home}

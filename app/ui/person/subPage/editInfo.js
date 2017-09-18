@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Text,Image,View } from 'react-native';
-import { StackNavigator } from 'react-navigation';
+//import { StackNavigator } from 'react-navigation';
 
 export default class editInfo extends Component {
 	static navigationOptions = ({navigation}) => ({
