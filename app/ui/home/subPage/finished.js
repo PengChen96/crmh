@@ -38,11 +38,11 @@ export default class editInfo extends Component {
 	_renderItem = ({item}) => (
 						<View>
 							<View style={{backgroundColor:'bisque',padding:5,marginTop:10}}>
-								<View style={{backgroundColor:'#fff',flex:1,flexDirection:'column'}}>
-									<View style={{backgroundColor:"brown",width:30,height:30,flex:1}}>
+								<View style={{backgroundColor:'#fff',flex:1,flexDirection:'row'}}>
+									<View style={{flex:1,backgroundColor:"brown",width:30,height:30}}>
 										<Image source={require('../../../res/images/logo.png')} style={{width:30,height:30,borderRadius:30}}/>
 									</View>
-									<View style={{flex:1}}>
+									<View>
 										<Text>aaa</Text>
 									</View>
 								</View>
