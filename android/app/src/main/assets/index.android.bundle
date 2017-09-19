@@ -48529,11 +48529,11 @@ var _home = require(461          ); // 461 = ./home/home
 
 var _home2 = babelHelpers.interopRequireDefault(_home);
 
-var _msg = require(462        ); // 462 = ./msg/msg
+var _msg = require(466        ); // 466 = ./msg/msg
 
 var _msg2 = babelHelpers.interopRequireDefault(_msg);
 
-var _person = require(467              ); // 467 = ./person/person
+var _person = require(470              ); // 470 = ./person/person
 
 var _person2 = babelHelpers.interopRequireDefault(_person);
 
@@ -48566,7 +48566,7 @@ var Tabs = (0, _reactNavigation.TabNavigator)({
       tabBarLabel: '首页',
       tabBarIcon: function tabBarIcon(_ref) {
         var tintColor = _ref.tintColor;
-        return _react2.default.createElement(_reactNative.Image, { source: require(468                     ), style: [{ tintColor: tintColor }, styles.icon], __source: { // 468 = ../res/images/home.png
+        return _react2.default.createElement(_reactNative.Image, { source: require(472                     ), style: [{ tintColor: tintColor }, styles.icon], __source: { // 472 = ../res/images/home.png
             fileName: _jsxFileName,
             lineNumber: 31
           }
@@ -48580,7 +48580,7 @@ var Tabs = (0, _reactNavigation.TabNavigator)({
       tabBarLabel: '消息',
       tabBarIcon: function tabBarIcon(_ref2) {
         var tintColor = _ref2.tintColor;
-        return _react2.default.createElement(_reactNative.Image, { source: require(469                     ), style: [{ tintColor: tintColor }, styles.icon], __source: { // 469 = ../res/images/warn.png
+        return _react2.default.createElement(_reactNative.Image, { source: require(473                     ), style: [{ tintColor: tintColor }, styles.icon], __source: { // 473 = ../res/images/warn.png
             fileName: _jsxFileName,
             lineNumber: 38
           }
@@ -48594,7 +48594,7 @@ var Tabs = (0, _reactNavigation.TabNavigator)({
       tabBarLabel: '我',
       tabBarIcon: function tabBarIcon(_ref3) {
         var tintColor = _ref3.tintColor;
-        return _react2.default.createElement(_reactNative.Image, { source: require(470                       ), style: [{ tintColor: tintColor }, styles.icon], __source: { // 470 = ../res/images/person.png
+        return _react2.default.createElement(_reactNative.Image, { source: require(474                       ), style: [{ tintColor: tintColor }, styles.icon], __source: { // 474 = ../res/images/person.png
             fileName: _jsxFileName,
             lineNumber: 45
           }
@@ -48605,7 +48605,7 @@ var Tabs = (0, _reactNavigation.TabNavigator)({
 }, {
   animationEnabled: false,
   tabBarPosition: 'bottom',
-  swipeEnabled: true,
+  swipeEnabled: false,
   backBehavior: 'none',
   tabBarOptions: {
     activeTintColor: '#1878fb',
@@ -55501,93 +55501,43 @@ var _reactNative = require(26            ); // 26 = react-native
 
 var _reactNavigation = require(403               ); // 403 = react-navigation
 
+var _topTabs = require(462        ); // 462 = ./topTabs
+
+var _topTabs2 = babelHelpers.interopRequireDefault(_topTabs);
+
 var home = function (_Component) {
 	babelHelpers.inherits(home, _Component);
 
 	function home() {
-		var _ref;
-
-		var _temp, _this, _ret;
-
 		babelHelpers.classCallCheck(this, home);
-
-		for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
-			args[_key] = arguments[_key];
-		}
-
-		return _ret = (_temp = (_this = babelHelpers.possibleConstructorReturn(this, (_ref = home.__proto__ || Object.getPrototypeOf(home)).call.apply(_ref, [this].concat(args))), _this), _this._onRefresh = function () {
-			return alert('已经是没有消息了！');
-		}, _temp), babelHelpers.possibleConstructorReturn(_this, _ret);
+		return babelHelpers.possibleConstructorReturn(this, (home.__proto__ || Object.getPrototypeOf(home)).apply(this, arguments));
 	}
 
 	babelHelpers.createClass(home, [{
 		key: 'render',
 		value: function render() {
-			return _react2.default.createElement(
-				_reactNative.View,
-				{
-					__source: {
-						fileName: _jsxFileName,
-						lineNumber: 12
-					}
-				},
-				_react2.default.createElement(
-					_reactNative.Text,
-					{
-						__source: {
-							fileName: _jsxFileName,
-							lineNumber: 13
-						}
-					},
-					' hello Home !'
-				),
-				_react2.default.createElement(_reactNative.StatusBar, {
-					backgroundColor: '#1878fb',
-					barStyle: 'light-content',
-					__source: {
-						fileName: _jsxFileName,
-						lineNumber: 14
-					}
-				}),
-				_react2.default.createElement(_reactNative.FlatList, {
-					data: [{ key: '一' }, { key: '二' }, { key: '三' }, { key: '四' }, { key: '五' }, { key: '六' }, { key: '七' }, { key: '八' }, { key: '九' }, { key: '十' }],
-					onRefresh: this._onRefresh,
-					refreshing: false,
-					renderItem: function renderItem(_ref2) {
-						var item = _ref2.item;
-						return _react2.default.createElement(
-							_reactNative.View,
-							{
-								__source: {
-									fileName: _jsxFileName,
-									lineNumber: 35
-								}
-							},
-							_react2.default.createElement(
-								_reactNative.Text,
-								{
-									__source: {
-										fileName: _jsxFileName,
-										lineNumber: 36
-									}
-								},
-								item.key
-							)
-						);
-					},
-					__source: {
-						fileName: _jsxFileName,
-						lineNumber: 19
-					}
-				})
-			);
+			return _react2.default.createElement(_topTabs2.default, {
+				__source: {
+					fileName: _jsxFileName,
+					lineNumber: 25
+				}
+			});
 		}
 	}]);
 	return home;
 }(_react.Component);
 
 home.navigationOptions = {
-	headerTitle: '首页'
+	headerTitle: '首页',
+	headerStyle: {
+		height: 48,
+		backgroundColor: '#3b88ff'
+	},
+	headerTitleStyle: {
+		alignSelf: 'center',
+		color: '#fff',
+		fontWeight: "400"
+	}
 };
 
 var App = (0, _reactNavigation.StackNavigator)({
@@ -55604,6 +55554,289 @@ var App = (0, _reactNavigation.StackNavigator)({
 	} });
 exports.default = App;
 }, 461, null, "cmrh/app/ui/home/home.js");
+__d(/* cmrh/app/ui/home/topTabs.js */function(global, require, module, exports) {Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var _jsxFileName = 'E:\\NativeApp\\cmrh\\app\\ui\\home\\topTabs.js';
+
+var _react = require(12     ); // 12 = react
+
+var _react2 = babelHelpers.interopRequireDefault(_react);
+
+var _reactNative = require(26            ); // 26 = react-native
+
+var _reactNavigation = require(403               ); // 403 = react-navigation
+
+var _finished = require(463                 ); // 463 = ./subPage/finished
+
+var _finished2 = babelHelpers.interopRequireDefault(_finished);
+
+var _unfinished = require(465                   ); // 465 = ./subPage/unfinished
+
+var _unfinished2 = babelHelpers.interopRequireDefault(_unfinished);
+
+var topTabs = function (_Component) {
+  babelHelpers.inherits(topTabs, _Component);
+
+  function topTabs() {
+    var _ref;
+
+    var _temp, _this, _ret;
+
+    babelHelpers.classCallCheck(this, topTabs);
+
+    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    return _ret = (_temp = (_this = babelHelpers.possibleConstructorReturn(this, (_ref = topTabs.__proto__ || Object.getPrototypeOf(topTabs)).call.apply(_ref, [this].concat(args))), _this), _this._onRefresh = function () {
+      return alert('已经是没有消息了！');
+    }, _temp), babelHelpers.possibleConstructorReturn(_this, _ret);
+  }
+
+  babelHelpers.createClass(topTabs, [{
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(TopTabs, {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 12
+        }
+      });
+    }
+  }]);
+  return topTabs;
+}(_react.Component);
+
+exports.default = topTabs;
+
+var TopTabs = (0, _reactNavigation.TabNavigator)({
+  Finished: {
+    screen: _finished2.default,
+    navigationOptions: {
+      tabBarLabel: '完成'
+    }
+  },
+  Unfinished: {
+    screen: _unfinished2.default,
+    navigationOptions: {
+      tabBarLabel: '未完成'
+    }
+  }
+}, {
+  animationEnabled: false,
+  tabBarPosition: 'top',
+  swipeEnabled: false,
+  backBehavior: 'none',
+  tabBarOptions: {
+    activeTintColor: '#1878fb',
+    inactiveTintColor: '#666',
+    showIcon: false,
+    showLabel: true,
+    pressColor: '#999',
+    indicatorStyle: {
+      height: 1,
+      backgroundColor: '#1878fb' },
+    style: {
+      backgroundColor: '#eee',
+      height: 40,
+      justifyContent: 'center',
+
+      borderColor: '#bbb'
+    },
+    labelStyle: {
+      margin: 0,
+      fontSize: 12 }
+  }
+});
+}, 462, null, "cmrh/app/ui/home/topTabs.js");
+__d(/* cmrh/app/ui/home/subPage/finished.js */function(global, require, module, exports) {Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+var _jsxFileName = 'E:\\NativeApp\\cmrh\\app\\ui\\home\\subPage\\finished.js';
+
+var _react = require(12     ); // 12 = react
+
+var _react2 = babelHelpers.interopRequireDefault(_react);
+
+var _reactNative = require(26            ); // 26 = react-native
+
+var editInfo = function (_Component) {
+	babelHelpers.inherits(editInfo, _Component);
+
+	function editInfo() {
+		var _ref;
+
+		var _temp, _this, _ret;
+
+		babelHelpers.classCallCheck(this, editInfo);
+
+		for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+			args[_key] = arguments[_key];
+		}
+
+		return _ret = (_temp = (_this = babelHelpers.possibleConstructorReturn(this, (_ref = editInfo.__proto__ || Object.getPrototypeOf(editInfo)).call.apply(_ref, [this].concat(args))), _this), _this._onRefresh = function () {
+			return alert('已经是没有消息了！');
+		}, _this._renderItem = function (_ref2) {
+			var item = _ref2.item;
+			return _react2.default.createElement(
+				_reactNative.View,
+				{
+					__source: {
+						fileName: _jsxFileName,
+						lineNumber: 39
+					}
+				},
+				_react2.default.createElement(
+					_reactNative.View,
+					{ style: { backgroundColor: 'bisque', padding: 5, marginTop: 10 }, __source: {
+							fileName: _jsxFileName,
+							lineNumber: 40
+						}
+					},
+					_react2.default.createElement(
+						_reactNative.View,
+						{ style: { backgroundColor: '#fff', flex: 1, flexDirection: 'row' }, __source: {
+								fileName: _jsxFileName,
+								lineNumber: 41
+							}
+						},
+						_react2.default.createElement(
+							_reactNative.View,
+							{ style: { flex: 1, backgroundColor: "brown", width: 30, height: 30 }, __source: {
+									fileName: _jsxFileName,
+									lineNumber: 42
+								}
+							},
+							_react2.default.createElement(_reactNative.Image, { source: require(464                           ), style: { width: 30, height: 30, borderRadius: 30 }, __source: { // 464 = ../../../res/images/logo.png
+									fileName: _jsxFileName,
+									lineNumber: 43
+								}
+							})
+						),
+						_react2.default.createElement(
+							_reactNative.View,
+							{
+								__source: {
+									fileName: _jsxFileName,
+									lineNumber: 45
+								}
+							},
+							_react2.default.createElement(
+								_reactNative.Text,
+								{
+									__source: {
+										fileName: _jsxFileName,
+										lineNumber: 46
+									}
+								},
+								'aaa'
+							)
+						)
+					),
+					_react2.default.createElement(
+						_reactNative.View,
+						{ style: { backgroundColor: '#eee' }, __source: {
+								fileName: _jsxFileName,
+								lineNumber: 49
+							}
+						},
+						_react2.default.createElement(
+							_reactNative.Text,
+							{
+								__source: {
+									fileName: _jsxFileName,
+									lineNumber: 50
+								}
+							},
+							item.key
+						)
+					)
+				)
+			);
+		}, _temp), babelHelpers.possibleConstructorReturn(_this, _ret);
+	}
+
+	babelHelpers.createClass(editInfo, [{
+		key: 'render',
+		value: function render() {
+			return _react2.default.createElement(
+				_reactNative.View,
+				{
+					__source: {
+						fileName: _jsxFileName,
+						lineNumber: 9
+					}
+				},
+				_react2.default.createElement(_reactNative.StatusBar, {
+					backgroundColor: '#1878fb',
+					barStyle: 'light-content',
+					__source: {
+						fileName: _jsxFileName,
+						lineNumber: 10
+					}
+				}),
+				_react2.default.createElement(_reactNative.FlatList, {
+					data: [{ key: '一' }, { key: '二' }, { key: '三' }, { key: '四' }, { key: '五' }, { key: '六' }, { key: '七' }, { key: '八' }, { key: '九' }, { key: '十' }, { key: 'A' }, { key: 'B' }, { key: 'C' }, { key: 'D' }],
+					onRefresh: this._onRefresh,
+					refreshing: false,
+					renderItem: this._renderItem,
+					__source: {
+						fileName: _jsxFileName,
+						lineNumber: 14
+					}
+				})
+			);
+		}
+	}]);
+	return editInfo;
+}(_react.Component);
+
+exports.default = editInfo;
+}, 463, null, "cmrh/app/ui/home/subPage/finished.js");
+__d(/* cmrh/app/res/images/logo.png */function(global, require, module, exports) {module.exports=require(259                                         ).registerAsset({"__packager_asset":true,"httpServerLocation":"/assets/app/res/images","width":200,"height":200,"scales":[1],"hash":"82b9c7a5a3f405032b1db71a25f67021","name":"logo","type":"png"}); // 259 = react-native/Libraries/Image/AssetRegistry
+}, 464, null, "cmrh/app/res/images/logo.png");
+__d(/* cmrh/app/ui/home/subPage/unfinished.js */function(global, require, module, exports) {Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var _jsxFileName = 'E:\\NativeApp\\cmrh\\app\\ui\\home\\subPage\\unfinished.js';
+
+var _react = require(12     ); // 12 = react
+
+var _react2 = babelHelpers.interopRequireDefault(_react);
+
+var _reactNative = require(26            ); // 26 = react-native
+
+var _reactNavigation = require(403               ); // 403 = react-navigation
+
+var editInfo = function (_Component) {
+  babelHelpers.inherits(editInfo, _Component);
+
+  function editInfo() {
+    babelHelpers.classCallCheck(this, editInfo);
+    return babelHelpers.possibleConstructorReturn(this, (editInfo.__proto__ || Object.getPrototypeOf(editInfo)).apply(this, arguments));
+  }
+
+  babelHelpers.createClass(editInfo, [{
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        _reactNative.Text,
+        {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 9
+          }
+        },
+        '\u672A\u5B8C\u6210'
+      );
+    }
+  }]);
+  return editInfo;
+}(_react.Component);
+
+exports.default = editInfo;
+}, 465, null, "cmrh/app/ui/home/subPage/unfinished.js");
 __d(/* cmrh/app/ui/msg/msg.js */function(global, require, module, exports) {Object.defineProperty(exports, "__esModule", {
 	value: true
 });
@@ -55617,7 +55850,7 @@ var _reactNative = require(26            ); // 26 = react-native
 
 var _reactNavigation = require(403               ); // 403 = react-navigation
 
-var _room = require(463     ); // 463 = ./room
+var _room = require(467     ); // 467 = ./room
 
 var _room2 = babelHelpers.interopRequireDefault(_room);
 
@@ -55638,7 +55871,7 @@ var msg = function (_Component) {
 				_reactNative.View,
 				{ style: styles.container, __source: {
 						fileName: _jsxFileName,
-						lineNumber: 14
+						lineNumber: 23
 					}
 				},
 				_react2.default.createElement(_reactNative.FlatList, {
@@ -55650,7 +55883,7 @@ var msg = function (_Component) {
 							{
 								__source: {
 									fileName: _jsxFileName,
-									lineNumber: 29
+									lineNumber: 38
 								}
 							},
 							_react2.default.createElement(
@@ -55661,26 +55894,26 @@ var msg = function (_Component) {
 										return navigate('Room', { val: item.key });
 									}, __source: {
 										fileName: _jsxFileName,
-										lineNumber: 30
+										lineNumber: 39
 									}
 								},
 								_react2.default.createElement(
 									_reactNative.View,
 									{ style: styles.roomContain, __source: {
 											fileName: _jsxFileName,
-											lineNumber: 33
+											lineNumber: 42
 										}
 									},
 									_react2.default.createElement(
 										_reactNative.View,
 										{ style: styles.imgBox, __source: {
 												fileName: _jsxFileName,
-												lineNumber: 34
+												lineNumber: 43
 											}
 										},
-										_react2.default.createElement(_reactNative.Image, { source: require(466                        ), style: { width: 44, height: 44, borderRadius: 44 }, __source: { // 466 = ../../res/images/logo.png
+										_react2.default.createElement(_reactNative.Image, { source: require(464                        ), style: { width: 44, height: 44, borderRadius: 44 }, __source: { // 464 = ../../res/images/logo.png
 												fileName: _jsxFileName,
-												lineNumber: 35
+												lineNumber: 44
 											}
 										})
 									),
@@ -55688,14 +55921,14 @@ var msg = function (_Component) {
 										_reactNative.View,
 										{ style: styles.roomDes, __source: {
 												fileName: _jsxFileName,
-												lineNumber: 37
+												lineNumber: 46
 											}
 										},
 										_react2.default.createElement(
 											_reactNative.Text,
 											{ style: styles.roomName, __source: {
 													fileName: _jsxFileName,
-													lineNumber: 38
+													lineNumber: 47
 												}
 											},
 											item.key
@@ -55704,7 +55937,7 @@ var msg = function (_Component) {
 											_reactNative.Text,
 											{ style: { fontSize: 12, lineHeight: 18 }, __source: {
 													fileName: _jsxFileName,
-													lineNumber: 39
+													lineNumber: 48
 												}
 											},
 											' A man can\u2019t ride your back unless it is bent. '
@@ -55716,7 +55949,7 @@ var msg = function (_Component) {
 					},
 					__source: {
 						fileName: _jsxFileName,
-						lineNumber: 15
+						lineNumber: 24
 					}
 				})
 			);
@@ -55726,7 +55959,16 @@ var msg = function (_Component) {
 }(_react.Component);
 
 msg.navigationOptions = {
-	headerTitle: '消息列表'
+	headerTitle: '消息',
+	headerStyle: {
+		height: 48,
+		backgroundColor: '#3b88ff'
+	},
+	headerTitleStyle: {
+		alignSelf: 'center',
+		color: '#fff',
+		fontWeight: "400"
+	}
 };
 
 var styles = _reactNative.StyleSheet.create({
@@ -55762,7 +56004,7 @@ var App = (0, _reactNavigation.StackNavigator)({
 	Room: { screen: _room2.default }
 });
 exports.default = App;
-}, 462, null, "cmrh/app/ui/msg/msg.js");
+}, 466, null, "cmrh/app/ui/msg/msg.js");
 __d(/* cmrh/app/ui/msg/room.js */function(global, require, module, exports) {Object.defineProperty(exports, "__esModule", {
 		value: true
 });
@@ -55774,11 +56016,11 @@ var _react2 = babelHelpers.interopRequireDefault(_react);
 
 var _reactNative = require(26            ); // 26 = react-native
 
-var _reactNativeImagePicker = require(464                        ); // 464 = react-native-image-picker
+var _reactNativeImagePicker = require(468                        ); // 468 = react-native-image-picker
 
 var _reactNativeImagePicker2 = babelHelpers.interopRequireDefault(_reactNativeImagePicker);
 
-var _autoTextInput = require(465                         ); // 465 = ../../common/autoTextInput
+var _autoTextInput = require(469                         ); // 469 = ../../common/autoTextInput
 
 var _autoTextInput2 = babelHelpers.interopRequireDefault(_autoTextInput);
 
@@ -55806,16 +56048,25 @@ var HomeTwo = function (_Component) {
 				value: function componentDidMount() {
 						var _this2 = this;
 
-						ws = new WebSocket("ws://192.168.56.1:8000/");
-
+						ws = new WebSocket("ws://119.23.209.74:8000/");
 						ws.onopen = function () {
 								console.log("connected");
 						};
 						ws.onmessage = function (e) {
-								var msgList = _this2.state.msgList;
+								var prefix = e.data.split("://")[0];
+								console.log(prefix);
+								if (prefix == "http" || prefix == "https") {
+										console.log("image url");
+										var msgList = _this2.state.msgList;
 
-								msgList.push({ msg: e.data, sender: true });
-								_this2.setState({ msgList: msgList });
+										msgList.push({ msg: e.data, sender: true, type: 0 });
+										_this2.setState({ msgList: msgList });
+								} else {
+										var _msgList = _this2.state.msgList;
+
+										_msgList.push({ msg: e.data, sender: true, type: 1 });
+										_this2.setState({ msgList: _msgList });
+								}
 
 								setTimeout(function () {
 										return _this2.refs.msgFlatList.scrollToEnd();
@@ -55839,6 +56090,7 @@ var HomeTwo = function (_Component) {
 				value: function _sendMessage(msg) {
 						var _this3 = this;
 
+						ws.send(msg);
 						var msgList = this.state.msgList;
 
 						msgList.push({ msg: this.state.text, sender: false, type: 1 });
@@ -55894,7 +56146,7 @@ var HomeTwo = function (_Component) {
 						console.log(formData);
 						formData.append('imgFile', imgFile);
 
-						fetch('http://10.231.1.151:8080/upload', {
+						fetch('http://119.23.209.74:8080/upload', {
 								method: 'POST',
 								headers: {
 										'Content-Type': 'multipart/form-data'
@@ -55903,6 +56155,7 @@ var HomeTwo = function (_Component) {
 						}).then(function (response) {
 								return response.json();
 						}).then(function (responseData) {
+								ws.send(responseData.fileUrl);
 								var msgList = self.state.msgList;
 
 								msgList.push({ msg: responseData.fileUrl, sender: false, type: 0 });
@@ -55927,14 +56180,14 @@ var HomeTwo = function (_Component) {
 								_reactNative.View,
 								{ style: styles.container, __source: {
 												fileName: _jsxFileName,
-												lineNumber: 150
+												lineNumber: 171
 										}
 								},
 								_react2.default.createElement(
 										_reactNative.View,
 										{ style: styles.msgContainer, __source: {
 														fileName: _jsxFileName,
-														lineNumber: 151
+														lineNumber: 172
 												}
 										},
 										_react2.default.createElement(_reactNative.FlatList, {
@@ -55952,37 +56205,37 @@ var HomeTwo = function (_Component) {
 																_reactNative.View,
 																{ style: { marginTop: 5 }, __source: {
 																				fileName: _jsxFileName,
-																				lineNumber: 162
+																				lineNumber: 183
 																		}
 																},
 																item.sender ? _react2.default.createElement(
 																		_reactNative.View,
 																		{ style: { flexDirection: "row", justifyContent: "flex-start" }, __source: {
 																						fileName: _jsxFileName,
-																						lineNumber: 164
+																						lineNumber: 185
 																				}
 																		},
-																		_react2.default.createElement(_reactNative.Image, { source: require(466                        ), style: styles.msgAvatar, __source: { // 466 = ../../res/images/logo.png
+																		_react2.default.createElement(_reactNative.Image, { source: require(464                        ), style: styles.msgAvatar, __source: { // 464 = ../../res/images/logo.png
 																						fileName: _jsxFileName,
-																						lineNumber: 165
+																						lineNumber: 186
 																				}
 																		}),
 																		item.type == 0 ? _react2.default.createElement(_reactNative.Image, { source: { uri: item.msg }, style: { width: 100, height: 100 }, __source: {
 																						fileName: _jsxFileName,
-																						lineNumber: 167
+																						lineNumber: 188
 																				}
 																		}) : _react2.default.createElement(
 																				_reactNative.View,
 																				{ style: { padding: 10, marginRight: 76 }, __source: {
 																								fileName: _jsxFileName,
-																								lineNumber: 169
+																								lineNumber: 190
 																						}
 																				},
 																				_react2.default.createElement(
 																						_reactNative.Text,
 																						{ style: { fontSize: 12, lineHeight: 14, color: "#999" }, __source: {
 																										fileName: _jsxFileName,
-																										lineNumber: 170
+																										lineNumber: 191
 																								}
 																						},
 																						'Taylor Swift --- 8/30 13:00 ',
@@ -55992,7 +56245,7 @@ var HomeTwo = function (_Component) {
 																						_reactNative.Text,
 																						{ style: styles.msgOther, __source: {
 																										fileName: _jsxFileName,
-																										lineNumber: 171
+																										lineNumber: 192
 																								}
 																						},
 																						'Message-',
@@ -56004,25 +56257,25 @@ var HomeTwo = function (_Component) {
 																		_reactNative.View,
 																		{ style: { flexDirection: "row", justifyContent: "flex-end" }, __source: {
 																						fileName: _jsxFileName,
-																						lineNumber: 176
+																						lineNumber: 197
 																				}
 																		},
 																		item.type == 0 ? _react2.default.createElement(_reactNative.Image, { source: { uri: item.msg }, style: { width: 100, height: 100 }, __source: {
 																						fileName: _jsxFileName,
-																						lineNumber: 178
+																						lineNumber: 199
 																				}
 																		}) : _react2.default.createElement(
 																				_reactNative.View,
 																				{ style: { padding: 10, marginLeft: 76 }, __source: {
 																								fileName: _jsxFileName,
-																								lineNumber: 180
+																								lineNumber: 201
 																						}
 																				},
 																				_react2.default.createElement(
 																						_reactNative.Text,
 																						{ style: { textAlign: "right", fontSize: 12, lineHeight: 14, color: "#999" }, __source: {
 																										fileName: _jsxFileName,
-																										lineNumber: 181
+																										lineNumber: 202
 																								}
 																						},
 																						'8/30 13:00 ',
@@ -56032,7 +56285,7 @@ var HomeTwo = function (_Component) {
 																						_reactNative.Text,
 																						{ style: styles.msgMine, __source: {
 																										fileName: _jsxFileName,
-																										lineNumber: 182
+																										lineNumber: 203
 																								}
 																						},
 																						'Message-',
@@ -56040,9 +56293,9 @@ var HomeTwo = function (_Component) {
 																						' '
 																				)
 																		),
-																		_react2.default.createElement(_reactNative.Image, { source: require(466                        ), style: styles.msgAvatar, __source: { // 466 = ../../res/images/logo.png
+																		_react2.default.createElement(_reactNative.Image, { source: require(464                        ), style: styles.msgAvatar, __source: { // 464 = ../../res/images/logo.png
 																						fileName: _jsxFileName,
-																						lineNumber: 185
+																						lineNumber: 206
 																				}
 																		})
 																)
@@ -56050,7 +56303,7 @@ var HomeTwo = function (_Component) {
 												},
 												__source: {
 														fileName: _jsxFileName,
-														lineNumber: 152
+														lineNumber: 173
 												}
 										})
 								),
@@ -56058,42 +56311,25 @@ var HomeTwo = function (_Component) {
 										_reactNative.View,
 										{ style: styles.msgInputContainer, __source: {
 														fileName: _jsxFileName,
-														lineNumber: 192
+														lineNumber: 213
 												}
 										},
 										_react2.default.createElement(_autoTextInput2.default, {
 												style: { flex: 1 },
-												placeholder: 'Type here to translate!',
+												placeholder: '\u8F93\u5165\u5185\u5BB9...',
 												onChangeText: function onChangeText(text) {
 														return _this6.setState({ text: text });
 												},
 												__source: {
 														fileName: _jsxFileName,
-														lineNumber: 193
+														lineNumber: 214
 												}
 										}),
 										_react2.default.createElement(
 												_reactNative.View,
-												{ style: { width: 60, height: 40, margin: 3 }, __source: {
-																fileName: _jsxFileName,
-																lineNumber: 198
-														}
-												},
-												_react2.default.createElement(_reactNative.Button, {
-														onPress: function onPress() {
-																return _this6._sendMessage(_this6.state.text);
-														},
-														title: '\u53D1\u9001', __source: {
-																fileName: _jsxFileName,
-																lineNumber: 199
-														}
-												})
-										),
-										_react2.default.createElement(
-												_reactNative.View,
 												{ style: { width: 40, height: 40, margin: 3 }, __source: {
 																fileName: _jsxFileName,
-																lineNumber: 203
+																lineNumber: 219
 														}
 												},
 												_react2.default.createElement(_reactNative.Button, {
@@ -56102,7 +56338,24 @@ var HomeTwo = function (_Component) {
 														},
 														title: '+', __source: {
 																fileName: _jsxFileName,
-																lineNumber: 204
+																lineNumber: 220
+														}
+												})
+										),
+										_react2.default.createElement(
+												_reactNative.View,
+												{ style: { width: 60, height: 40, margin: 3 }, __source: {
+																fileName: _jsxFileName,
+																lineNumber: 224
+														}
+												},
+												_react2.default.createElement(_reactNative.Button, {
+														onPress: function onPress() {
+																return _this6._sendMessage(_this6.state.text);
+														},
+														title: '\u53D1\u9001', __source: {
+																fileName: _jsxFileName,
+																lineNumber: 225
 														}
 												})
 										)
@@ -56117,7 +56370,13 @@ HomeTwo.navigationOptions = function (_ref2) {
 		var navigation = _ref2.navigation;
 		return {
 				title: navigation.state.params.val,
-				tabBarVisible: false
+				tabBarVisible: false,
+				headerStyle: {
+						height: 48
+				},
+				headerTitleStyle: {
+						fontWeight: "400"
+				}
 		};
 };
 
@@ -56141,7 +56400,7 @@ var styles = _reactNative.StyleSheet.create({
 				margin: 5
 		},
 		msgInputContainer: {
-				backgroundColor: "bisque",
+				backgroundColor: "#fff",
 
 				flexDirection: 'row',
 				justifyContent: "space-between",
@@ -56162,7 +56421,7 @@ var styles = _reactNative.StyleSheet.create({
 				borderRadius: 3
 		}
 });
-}, 463, null, "cmrh/app/ui/msg/room.js");
+}, 467, null, "cmrh/app/ui/msg/room.js");
 __d(/* react-native-image-picker/index.js */function(global, require, module, exports) {'use strict';
 
 var _require = require(26            ), // 26 = react-native
@@ -56195,7 +56454,7 @@ module.exports = babelHelpers.extends({}, ImagePickerManager, {
     return ImagePickerManager.showImagePicker(babelHelpers.extends({}, DEFAULT_OPTIONS, options), callback);
   }
 });
-}, 464, null, "react-native-image-picker/index.js");
+}, 468, null, "react-native-image-picker/index.js");
 __d(/* cmrh/app/common/autoTextInput.js */function(global, require, module, exports) {Object.defineProperty(exports, "__esModule", {
     value: true
 });
@@ -56217,8 +56476,7 @@ var AutoExpandingTextInput = function (_Component) {
 
         _this.state = {
             text: '',
-            lines: 2
-        };
+            lines: 2 };
         _this.onChange = _this.onChange.bind(_this);
         return _this;
     }
@@ -56262,9 +56520,7 @@ var AutoExpandingTextInput = function (_Component) {
 }(_react.Component);
 
 exports.default = AutoExpandingTextInput;
-}, 465, null, "cmrh/app/common/autoTextInput.js");
-__d(/* cmrh/app/res/images/logo.png */function(global, require, module, exports) {module.exports=require(259                                         ).registerAsset({"__packager_asset":true,"httpServerLocation":"/assets/app/res/images","width":200,"height":200,"scales":[1],"hash":"82b9c7a5a3f405032b1db71a25f67021","name":"logo","type":"png"}); // 259 = react-native/Libraries/Image/AssetRegistry
-}, 466, null, "cmrh/app/res/images/logo.png");
+}, 469, null, "cmrh/app/common/autoTextInput.js");
 __d(/* cmrh/app/ui/person/person.js */function(global, require, module, exports) {Object.defineProperty(exports, "__esModule", {
 	value: true
 });
@@ -56278,35 +56534,218 @@ var _reactNative = require(26            ); // 26 = react-native
 
 var _reactNavigation = require(403               ); // 403 = react-navigation
 
+var _editInfo = require(471                 ); // 471 = ./subPage/editInfo
+
+var _editInfo2 = babelHelpers.interopRequireDefault(_editInfo);
+
 var person = function (_Component) {
 	babelHelpers.inherits(person, _Component);
 
 	function person() {
+		var _ref;
+
+		var _temp, _this, _ret;
+
 		babelHelpers.classCallCheck(this, person);
-		return babelHelpers.possibleConstructorReturn(this, (person.__proto__ || Object.getPrototypeOf(person)).apply(this, arguments));
+
+		for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+			args[_key] = arguments[_key];
+		}
+
+		return _ret = (_temp = (_this = babelHelpers.possibleConstructorReturn(this, (_ref = person.__proto__ || Object.getPrototypeOf(person)).call.apply(_ref, [this].concat(args))), _this), _this._renderTitle = function (_ref2) {
+			var item = _ref2.item;
+			return _react2.default.createElement(
+				_reactNative.View,
+				{ style: { height: 80, paddingVertical: 10, paddingHorizontal: 20, backgroundColor: '#fff' }, __source: {
+						fileName: _jsxFileName,
+						lineNumber: 54
+					}
+				},
+				_react2.default.createElement(
+					_reactNative.View,
+					{ style: { flex: 1, flexDirection: 'row' }, __source: {
+							fileName: _jsxFileName,
+							lineNumber: 55
+						}
+					},
+					_react2.default.createElement(
+						_reactNative.View,
+						{ style: { width: 60, height: 60, borderRadius: 60, backgroundColor: '#eee' }, __source: {
+								fileName: _jsxFileName,
+								lineNumber: 56
+							}
+						},
+						_react2.default.createElement(_reactNative.Image, { source: require(464                        ), style: { width: 60, height: 60, borderRadius: 60 }, __source: { // 464 = ../../res/images/logo.png
+								fileName: _jsxFileName,
+								lineNumber: 57
+							}
+						})
+					),
+					_react2.default.createElement(
+						_reactNative.View,
+						{ style: { flex: 1, paddingLeft: 20, justifyContent: 'center' }, __source: {
+								fileName: _jsxFileName,
+								lineNumber: 59
+							}
+						},
+						_react2.default.createElement(
+							_reactNative.Text,
+							{ style: { fontSize: 18, lineHeight: 24, color: '#333' }, __source: {
+									fileName: _jsxFileName,
+									lineNumber: 60
+								}
+							},
+							item.name
+						),
+						_react2.default.createElement(
+							_reactNative.Text,
+							{
+								__source: {
+									fileName: _jsxFileName,
+									lineNumber: 61
+								}
+							},
+							item.des
+						)
+					),
+					_react2.default.createElement(
+						_reactNative.View,
+						{ style: { justifyContent: 'center' }, __source: {
+								fileName: _jsxFileName,
+								lineNumber: 63
+							}
+						},
+						_react2.default.createElement(
+							_reactNative.Text,
+							{ style: { fontFamily: 'serif', fontWeight: 'bold', color: '#d3d3d3', fontSize: 24 }, __source: {
+									fileName: _jsxFileName,
+									lineNumber: 64
+								}
+							},
+							' > '
+						)
+					)
+				)
+			);
+		}, _this._renderItem = function (_ref3) {
+			var item = _ref3.item;
+			return _react2.default.createElement(
+				_reactNative.TouchableHighlight,
+				{
+					underlayColor: '#d2e6ff',
+					onPress: function onPress() {
+						return _this.props.navigation.navigate(item.toPage, { val: item.name });
+					}, __source: {
+						fileName: _jsxFileName,
+						lineNumber: 70
+					}
+				},
+				_react2.default.createElement(
+					_reactNative.View,
+					{ style: { flex: 1, flexDirection: 'row', height: 50, backgroundColor: '#fff', paddingVertical: 5, paddingHorizontal: 20 }, __source: {
+							fileName: _jsxFileName,
+							lineNumber: 73
+						}
+					},
+					_react2.default.createElement(
+						_reactNative.View,
+						{ style: { width: 40, height: 40, borderRadius: 40, backgroundColor: '#eee' }, __source: {
+								fileName: _jsxFileName,
+								lineNumber: 74
+							}
+						},
+						_react2.default.createElement(_reactNative.Image, { source: require(464                        ), style: { width: 40, height: 40, borderRadius: 40 }, __source: { // 464 = ../../res/images/logo.png
+								fileName: _jsxFileName,
+								lineNumber: 75
+							}
+						})
+					),
+					_react2.default.createElement(
+						_reactNative.View,
+						{ style: { flex: 1, paddingLeft: 20, justifyContent: 'center' }, __source: {
+								fileName: _jsxFileName,
+								lineNumber: 77
+							}
+						},
+						_react2.default.createElement(
+							_reactNative.Text,
+							{ style: { color: '#666' }, __source: {
+									fileName: _jsxFileName,
+									lineNumber: 78
+								}
+							},
+							item.name
+						)
+					),
+					_react2.default.createElement(
+						_reactNative.View,
+						{ style: { justifyContent: 'center' }, __source: {
+								fileName: _jsxFileName,
+								lineNumber: 80
+							}
+						},
+						_react2.default.createElement(
+							_reactNative.Text,
+							{ style: { fontFamily: 'serif', fontWeight: 'bold', color: '#d3d3d3', fontSize: 24 }, __source: {
+									fileName: _jsxFileName,
+									lineNumber: 81
+								}
+							},
+							' > '
+						)
+					)
+				)
+			);
+		}, _temp), babelHelpers.possibleConstructorReturn(_this, _ret);
 	}
 
 	babelHelpers.createClass(person, [{
 		key: 'render',
 		value: function render() {
+			var dataSource = [{ data: [{ name: 'PengChen', des: '浙江杭州', key: 'A1' }], renderItem: this._renderTitle }, { data: [{ name: '编辑资料', key: 'B1', toPage: 'EditInfo' }, { name: '我的发单', key: 'B2', toPage: 'EditInfo' }, { name: '我的抢单', key: 'B3', toPage: 'EditInfo' }, { name: '我的追问', key: 'B4', toPage: 'EditInfo' }], renderItem: this._renderItem }, { data: [{ name: '二手商城', key: 'C1' }], renderItem: this._renderItem }, { data: [{ name: '问题反馈', key: 'D1' }, { name: '设置', key: 'D2' }], renderItem: this._renderItem }];
 			return _react2.default.createElement(
 				_reactNative.View,
 				{
 					__source: {
 						fileName: _jsxFileName,
-						lineNumber: 11
+						lineNumber: 38
 					}
 				},
-				_react2.default.createElement(
-					_reactNative.Text,
-					{
-						__source: {
-							fileName: _jsxFileName,
-							lineNumber: 12
-						}
+				_react2.default.createElement(_reactNative.SectionList, {
+					renderSectionHeader: function renderSectionHeader(_ref4) {
+						var section = _ref4.section;
+						return _react2.default.createElement(
+							_reactNative.View,
+							{ style: { height: 10, backgroundColor: '#eee' }, __source: {
+									fileName: _jsxFileName,
+									lineNumber: 42
+								}
+							},
+							_react2.default.createElement(
+								_reactNative.Text,
+								{
+									__source: {
+										fileName: _jsxFileName,
+										lineNumber: 43
+									}
+								},
+								section.key
+							)
+						);
 					},
-					'\u4E2A\u4EBA\u4E2D\u5FC3'
-				)
+					sections: dataSource,
+					ItemSeparatorComponent: function ItemSeparatorComponent() {
+						return _react2.default.createElement(_reactNative.View, { style: { height: 1, backgroundColor: '#eee' }, __source: {
+								fileName: _jsxFileName,
+								lineNumber: 47
+							}
+						});
+					},
+					__source: {
+						fileName: _jsxFileName,
+						lineNumber: 39
+					}
+				})
 			);
 		}
 	}]);
@@ -56314,20 +56753,90 @@ var person = function (_Component) {
 }(_react.Component);
 
 person.navigationOptions = {
-	headerTitle: '个人中心'
+	headerTitle: '我',
+	headerStyle: {
+		height: 48,
+		backgroundColor: '#3b88ff'
+	},
+	headerTitleStyle: {
+		alignSelf: 'center',
+		color: '#fff',
+		fontWeight: "400"
+	}
 };
 
 var App = (0, _reactNavigation.StackNavigator)({
-	Person: { screen: person }
+	Person: { screen: person },
+	EditInfo: { screen: _editInfo2.default }
 });
 exports.default = App;
-}, 467, null, "cmrh/app/ui/person/person.js");
+}, 470, null, "cmrh/app/ui/person/person.js");
+__d(/* cmrh/app/ui/person/subPage/editInfo.js */function(global, require, module, exports) {Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+var _jsxFileName = 'E:\\NativeApp\\cmrh\\app\\ui\\person\\subPage\\editInfo.js';
+
+var _react = require(12     ); // 12 = react
+
+var _react2 = babelHelpers.interopRequireDefault(_react);
+
+var _reactNative = require(26            ); // 26 = react-native
+
+var editInfo = function (_Component) {
+	babelHelpers.inherits(editInfo, _Component);
+
+	function editInfo() {
+		babelHelpers.classCallCheck(this, editInfo);
+		return babelHelpers.possibleConstructorReturn(this, (editInfo.__proto__ || Object.getPrototypeOf(editInfo)).apply(this, arguments));
+	}
+
+	babelHelpers.createClass(editInfo, [{
+		key: 'render',
+		value: function render() {
+			return _react2.default.createElement(
+				_reactNative.Text,
+				{
+					__source: {
+						fileName: _jsxFileName,
+						lineNumber: 25
+					}
+				},
+				'Hello world!'
+			);
+		}
+	}]);
+	return editInfo;
+}(_react.Component);
+
+editInfo.navigationOptions = function (_ref) {
+	var navigation = _ref.navigation;
+	return {
+		title: navigation.state.params.val,
+		tabBarVisible: false,
+		headerStyle: {
+			height: 48,
+			backgroundColor: '#3b88ff'
+		},
+		headerTitleStyle: {
+			alignSelf: 'center',
+			marginRight: 56,
+			color: '#fff',
+			fontWeight: "400"
+		},
+
+		headerTintColor: '#fff',
+		gesturesEnabled: true
+	};
+};
+
+exports.default = editInfo;
+}, 471, null, "cmrh/app/ui/person/subPage/editInfo.js");
 __d(/* cmrh/app/res/images/home.png */function(global, require, module, exports) {module.exports=require(259                                         ).registerAsset({"__packager_asset":true,"httpServerLocation":"/assets/app/res/images","width":128,"height":128,"scales":[1],"hash":"6babdc46ad9791553ca47429dad957a0","name":"home","type":"png"}); // 259 = react-native/Libraries/Image/AssetRegistry
-}, 468, null, "cmrh/app/res/images/home.png");
+}, 472, null, "cmrh/app/res/images/home.png");
 __d(/* cmrh/app/res/images/warn.png */function(global, require, module, exports) {module.exports=require(259                                         ).registerAsset({"__packager_asset":true,"httpServerLocation":"/assets/app/res/images","width":128,"height":128,"scales":[1],"hash":"8ff7d7d23baba2c72073ed5040bbefa1","name":"warn","type":"png"}); // 259 = react-native/Libraries/Image/AssetRegistry
-}, 469, null, "cmrh/app/res/images/warn.png");
+}, 473, null, "cmrh/app/res/images/warn.png");
 __d(/* cmrh/app/res/images/person.png */function(global, require, module, exports) {module.exports=require(259                                         ).registerAsset({"__packager_asset":true,"httpServerLocation":"/assets/app/res/images","width":128,"height":128,"scales":[1],"hash":"3621374944d8995d9c6bcdadd89aec6d","name":"person","type":"png"}); // 259 = react-native/Libraries/Image/AssetRegistry
-}, 470, null, "cmrh/app/res/images/person.png");
+}, 474, null, "cmrh/app/res/images/person.png");
 ;require(120);
 ;require(0);
 //# sourceMappingURL=/index.android.map
