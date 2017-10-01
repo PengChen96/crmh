@@ -25,41 +25,20 @@ export default class editInfo extends Component {
     super(props);
     this.state = {modalVisible: false};
   }
-  _setModalVisible(visible) {
-    this.setState({modalVisible: visible});
-  }
+  
+  _renderSubTxtItem = (item) => (
+  					<View style={{justifyContent:'center',height:44}}>
+	        	  <Text>{item}</Text>
+	        	</View>
+  )
+  _renderSubImgItem = (
+  	        <View>
+	        		<Image source={require('../../../res/images/logo.png')} style={{width:44,height:44,borderRadius:44}}/>
+	        	</View>
+  )
 	render() {
     return (
     	<View>
-    	  <Modal
-          animationType={"slide"}
-          transparent={false}		/*设置透明背景色*/
-          visible={this.state.modalVisible}
-          onRequestClose={() => {alert("Modal has been closed.")}}
-          >
-          <View style={{marginTop: 22}}>
-	          <View>
-	            <Text>Hello World!</Text>
-	
-	            <TouchableHighlight 
-	            underlayColor="#d2e6ff"
-	            onPress={() => {
-	              this._setModalVisible(!this.state.modalVisible)
-	            }}>
-	              <Text>Hide Modal</Text>
-	            </TouchableHighlight>
-	
-	          </View>
-          </View>
-        </Modal>
-        <TouchableHighlight
-        underlayColor="#d2e6ff"
-        onPress={() => {
-          this._setModalVisible(true)
-        }}>
-          <Text>Show Modal</Text>
-        </TouchableHighlight>
-        
 	      <ScrollView style={{backgroundColor:"bisque"}}>
 	        <View style={{flex:1,flexDirection:'row',justifyContent:'space-between',borderBottomWidth:1,borderColor:'#eee',backgroundColor:'#fff',paddingVertical:10,paddingHorizontal:20}}>
 	        	<View style={{justifyContent:'center'}}>
@@ -69,7 +48,10 @@ export default class editInfo extends Component {
 	        		<Image source={require('../../../res/images/logo.png')} style={{width:44,height:44,borderRadius:44}}/>
 	        	</View>
 	        </View>
-	        <TouchLine/>
+	        <TouchLine renderSubLeftItem={this._renderSubTxtItem('头像')} renderSubRightItem = {this._renderSubImgItem}/>
+	        <TouchLine renderSubLeftItem={this._renderSubTxtItem('姓名')} renderSubRightItem = {this._renderSubTxtItem('PengChen')}/>
+	        <TouchLine renderSubLeftItem={this._renderSubTxtItem('学校')} renderSubRightItem = {this._renderSubTxtItem('杭州电子科技大学')}/>
+	        <TouchLine renderSubLeftItem={this._renderSubTxtItem('简介')} renderSubRightItem = {this._renderSubTxtItem('热爱生命')}/>
 	      </ScrollView>
 	    </View>
     );
