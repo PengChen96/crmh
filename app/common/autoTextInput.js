@@ -1,3 +1,6 @@
+// 多行输入框
+// 使用位置: ( ui/msg/room )
+
 import React, {Component} from 'react';
 import {AppRegistry, TextInput, StyleSheet} from 'react-native';
 

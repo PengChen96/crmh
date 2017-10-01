@@ -48566,7 +48566,7 @@ var Tabs = (0, _reactNavigation.TabNavigator)({
       tabBarLabel: '首页',
       tabBarIcon: function tabBarIcon(_ref) {
         var tintColor = _ref.tintColor;
-        return _react2.default.createElement(_reactNative.Image, { source: require(472                     ), style: [{ tintColor: tintColor }, styles.icon], __source: { // 472 = ../res/images/home.png
+        return _react2.default.createElement(_reactNative.Image, { source: require(473                     ), style: [{ tintColor: tintColor }, styles.icon], __source: { // 473 = ../res/images/home.png
             fileName: _jsxFileName,
             lineNumber: 31
           }
@@ -48580,7 +48580,7 @@ var Tabs = (0, _reactNavigation.TabNavigator)({
       tabBarLabel: '消息',
       tabBarIcon: function tabBarIcon(_ref2) {
         var tintColor = _ref2.tintColor;
-        return _react2.default.createElement(_reactNative.Image, { source: require(473                     ), style: [{ tintColor: tintColor }, styles.icon], __source: { // 473 = ../res/images/warn.png
+        return _react2.default.createElement(_reactNative.Image, { source: require(474                     ), style: [{ tintColor: tintColor }, styles.icon], __source: { // 474 = ../res/images/warn.png
             fileName: _jsxFileName,
             lineNumber: 38
           }
@@ -48594,7 +48594,7 @@ var Tabs = (0, _reactNavigation.TabNavigator)({
       tabBarLabel: '我',
       tabBarIcon: function tabBarIcon(_ref3) {
         var tintColor = _ref3.tintColor;
-        return _react2.default.createElement(_reactNative.Image, { source: require(474                       ), style: [{ tintColor: tintColor }, styles.icon], __source: { // 474 = ../res/images/person.png
+        return _react2.default.createElement(_reactNative.Image, { source: require(475                       ), style: [{ tintColor: tintColor }, styles.icon], __source: { // 475 = ../res/images/person.png
             fileName: _jsxFileName,
             lineNumber: 45
           }
@@ -55626,7 +55626,7 @@ var TopTabs = (0, _reactNavigation.TabNavigator)({
 }, {
   animationEnabled: false,
   tabBarPosition: 'top',
-  swipeEnabled: false,
+  swipeEnabled: true,
   backBehavior: 'none',
   tabBarOptions: {
     activeTintColor: '#1878fb',
@@ -55689,26 +55689,26 @@ var editInfo = function (_Component) {
 				},
 				_react2.default.createElement(
 					_reactNative.View,
-					{ style: { backgroundColor: 'bisque', padding: 5, marginTop: 10 }, __source: {
+					{ style: { marginTop: 10 }, __source: {
 							fileName: _jsxFileName,
 							lineNumber: 40
 						}
 					},
 					_react2.default.createElement(
 						_reactNative.View,
-						{ style: { backgroundColor: '#fff', flex: 1, flexDirection: 'row' }, __source: {
+						{ style: { backgroundColor: '#fff', paddingHorizontal: 8, paddingTop: 8, flex: 1, flexDirection: 'row' }, __source: {
 								fileName: _jsxFileName,
 								lineNumber: 41
 							}
 						},
 						_react2.default.createElement(
 							_reactNative.View,
-							{ style: { flex: 1, backgroundColor: "brown", width: 30, height: 30 }, __source: {
+							{ style: { backgroundColor: "bisque", width: 48, height: 48 }, __source: {
 									fileName: _jsxFileName,
 									lineNumber: 42
 								}
 							},
-							_react2.default.createElement(_reactNative.Image, { source: require(464                           ), style: { width: 30, height: 30, borderRadius: 30 }, __source: { // 464 = ../../../res/images/logo.png
+							_react2.default.createElement(_reactNative.Image, { source: require(464                           ), style: { width: 48, height: 48, borderRadius: 48 }, __source: { // 464 = ../../../res/images/logo.png
 									fileName: _jsxFileName,
 									lineNumber: 43
 								}
@@ -55716,29 +55716,64 @@ var editInfo = function (_Component) {
 						),
 						_react2.default.createElement(
 							_reactNative.View,
-							{
-								__source: {
+							{ style: { flex: 1, flexDirection: 'row' }, __source: {
 									fileName: _jsxFileName,
 									lineNumber: 45
 								}
 							},
 							_react2.default.createElement(
-								_reactNative.Text,
-								{
-									__source: {
+								_reactNative.View,
+								{ style: { flex: 1, justifyContent: 'center', paddingLeft: 10 }, __source: {
 										fileName: _jsxFileName,
 										lineNumber: 46
 									}
 								},
-								'aaa'
+								_react2.default.createElement(
+									_reactNative.Text,
+									{
+										__source: {
+											fileName: _jsxFileName,
+											lineNumber: 47
+										}
+									},
+									'FlyingWWS'
+								),
+								_react2.default.createElement(
+									_reactNative.Text,
+									{
+										__source: {
+											fileName: _jsxFileName,
+											lineNumber: 48
+										}
+									},
+									'2017-09-20'
+								)
+							),
+							_react2.default.createElement(
+								_reactNative.View,
+								{ style: { justifyContent: 'center', backgroundColor: 'bisque' }, __source: {
+										fileName: _jsxFileName,
+										lineNumber: 50
+									}
+								},
+								_react2.default.createElement(
+									_reactNative.Text,
+									{
+										__source: {
+											fileName: _jsxFileName,
+											lineNumber: 51
+										}
+									},
+									'? \u95EE\u7B54'
+								)
 							)
 						)
 					),
 					_react2.default.createElement(
 						_reactNative.View,
-						{ style: { backgroundColor: '#eee' }, __source: {
+						{ style: { backgroundColor: '#fff', paddingHorizontal: 8, paddingVertical: 4, borderBottomWidth: 1, borderColor: '#eee' }, __source: {
 								fileName: _jsxFileName,
-								lineNumber: 49
+								lineNumber: 55
 							}
 						},
 						_react2.default.createElement(
@@ -55746,10 +55781,72 @@ var editInfo = function (_Component) {
 							{
 								__source: {
 									fileName: _jsxFileName,
-									lineNumber: 50
+									lineNumber: 56
 								}
 							},
 							item.key
+						)
+					),
+					_react2.default.createElement(
+						_reactNative.View,
+						{ style: { padding: 8, flex: 1, flexDirection: 'row', backgroundColor: '#fcfcfc' }, __source: {
+								fileName: _jsxFileName,
+								lineNumber: 58
+							}
+						},
+						_react2.default.createElement(
+							_reactNative.View,
+							{ style: { flex: 1 }, __source: {
+									fileName: _jsxFileName,
+									lineNumber: 59
+								}
+							},
+							_react2.default.createElement(
+								_reactNative.Text,
+								{
+									__source: {
+										fileName: _jsxFileName,
+										lineNumber: 60
+									}
+								},
+								' $ 1\u5143'
+							)
+						),
+						_react2.default.createElement(
+							_reactNative.View,
+							{
+								__source: {
+									fileName: _jsxFileName,
+									lineNumber: 62
+								}
+							},
+							_react2.default.createElement(
+								_reactNative.View,
+								{ style: { flex: 1, flexDirection: 'row' }, __source: {
+										fileName: _jsxFileName,
+										lineNumber: 63
+									}
+								},
+								_react2.default.createElement(
+									_reactNative.Text,
+									{ style: { color: '#ffc727' }, __source: {
+											fileName: _jsxFileName,
+											lineNumber: 64
+										}
+									},
+									'\u8F6C\u53D1 '
+								),
+								_react2.default.createElement(
+									_reactNative.Text,
+									{
+										__source: {
+											fileName: _jsxFileName,
+											lineNumber: 65
+										}
+									},
+									'\u62A2\u5355 '
+								)
+							)
 						)
 					)
 				)
@@ -55777,7 +55874,7 @@ var editInfo = function (_Component) {
 					}
 				}),
 				_react2.default.createElement(_reactNative.FlatList, {
-					data: [{ key: '一' }, { key: '二' }, { key: '三' }, { key: '四' }, { key: '五' }, { key: '六' }, { key: '七' }, { key: '八' }, { key: '九' }, { key: '十' }, { key: 'A' }, { key: 'B' }, { key: 'C' }, { key: 'D' }],
+					data: [{ key: '一The easiest way to get started with React is to use this Hello World example code on CodePen. You dont need to install anything; you can just open it in another tab and follow along as we go through examples. If youd rather use a local development environment, check out the Installation page' }, { key: '二我一直不理解这句话，总感觉有点矛盾，现在想来自己才是那个矛盾体。有些地方只有你去了才会明白，有些人你去了才会遇见。' }, { key: '三笑，是尼泊尔另外一道美丽的风景线。他们喜欢笑，发自内心的那种微笑。不管是老人，孩子，还是其他年龄段的人都在笑。我喜欢笑，我也爱笑，所以我对他们也笑了。' }, { key: '四从布丁山西面的望月山上迁徙过来的河马家族，它们的方法似乎更简单，直接把布丁河的上游连接到能量站，然后河水的沿岸都可以作为二次能量源进行释放和传递。它们主要考虑的是，饮水时随时可以吸收能量，让自己的身体更加强壮。' }, { key: '五如果找一种饮品，来比喻汪曾祺的作品，非清茶莫属。刚入口的时候有点寡淡，好像索然无味，之后丝丝清甜顺着咽喉缓缓逆行而上，蔓延到口腔里，生出许多津液来。我不太会品茶，也不知行家眼里的好茶是什么味，但却喜欢这样的茶带来的舒服和惬意。' }, { key: '六简洁、凝练，留有余地，将自己抽身于作品之外，克制住情感，平静地叙述，而不是把所有的喜怒哀乐都肆意地渲泄出来，这是汪曾祺常用的结尾方式。' }, { key: '七她们的眼睛尤其像，白眼珠鸭蛋青，黑眼珠棋子黑，定神时如清水，闪动时像星星。浑身上下，头是头，脚是脚，头发滑溜溜的，衣服格挣挣的。' }, { key: '八警报长鸣，其他同学都仓惶逃跑，但一罗姓女同学偏偏不跑，因为一有警报，大家都跑了，锅炉房的热水没人用，她一人就可以敞开来洗，想洗多久就洗多久。另一郑姓男同学，则用漱口缸在热锅炉上煮冰糖莲子，有次炸弹在不远处乒乒乓乓地响，而他却神色不动地搅着羹汤。' }, { key: '九来往海上的人谈论立村，都说立村烟波浩瀚，难以找寻。村里人说起八礁山，烟云浩渺的景象可以亲眼看见。八礁山连着天际，高耸入云。八礁山的特点有两个。一个是高峰入云霄，清晨烟雾缭绕，颇为神秘。另一个是奇，它就奇在山向东面倾斜，且一侧立于海边。﻿' }, { key: '十“八月十五月儿圆啊，爷爷为我打月饼啊，月饼圆圆，甜又香啊~~~”，美美快到中秋，吃月饼的季节，我不禁就会想起这首儿时的童谣，它勾起了我满满的回忆，勾起了小时侯和奶奶一起做“团圆馍”时的情景' }, { key: 'A烟花三月之时，有计划下一趟江南，却因工作周折而未能成行，想来是时候未到。先前因为工作原因去过杭州两次，但水乡古镇杭州是看不到的，时间也匆忙，走过西湖，也谈不上太多感想。直到今年元旦，才得以成行。' }, { key: 'B江南是温柔的，是多情的，是梦幻的，江南水乡是无数人编制出来的梦，没有哪一个地方会比梦里的那个江南更美。﻿' }, { key: 'C放弃你自己，就如同放弃了我，我的精神家园世界因为没你而变得荒芜。村上村树说“你最爱的人，心中也有一片你无法到达的森林”。黑夜就在周围逡巡，我独自笼罩其中。' }, { key: 'D我害怕那种经历了两个人的甜蜜后，努力适应分手后一个人的生活，我好不容易习惯了一个的自在惬意，好不容易从上一段感情的阴霾中走出来，我实在是很害怕，再次踏进旋涡，我也没有多少把握，我陷进去后，还能再次顽强的走出来。' }],
 					onRefresh: this._onRefresh,
 					refreshing: false,
 					renderItem: this._renderItem,
@@ -55797,7 +55894,7 @@ exports.default = editInfo;
 __d(/* cmrh/app/res/images/logo.png */function(global, require, module, exports) {module.exports=require(259                                         ).registerAsset({"__packager_asset":true,"httpServerLocation":"/assets/app/res/images","width":200,"height":200,"scales":[1],"hash":"82b9c7a5a3f405032b1db71a25f67021","name":"logo","type":"png"}); // 259 = react-native/Libraries/Image/AssetRegistry
 }, 464, null, "cmrh/app/res/images/logo.png");
 __d(/* cmrh/app/ui/home/subPage/unfinished.js */function(global, require, module, exports) {Object.defineProperty(exports, "__esModule", {
-  value: true
+	value: true
 });
 var _jsxFileName = 'E:\\NativeApp\\cmrh\\app\\ui\\home\\subPage\\unfinished.js';
 
@@ -55807,32 +55904,224 @@ var _react2 = babelHelpers.interopRequireDefault(_react);
 
 var _reactNative = require(26            ); // 26 = react-native
 
-var _reactNavigation = require(403               ); // 403 = react-navigation
-
 var editInfo = function (_Component) {
-  babelHelpers.inherits(editInfo, _Component);
+	babelHelpers.inherits(editInfo, _Component);
 
-  function editInfo() {
-    babelHelpers.classCallCheck(this, editInfo);
-    return babelHelpers.possibleConstructorReturn(this, (editInfo.__proto__ || Object.getPrototypeOf(editInfo)).apply(this, arguments));
-  }
+	function editInfo() {
+		var _ref;
 
-  babelHelpers.createClass(editInfo, [{
-    key: 'render',
-    value: function render() {
-      return _react2.default.createElement(
-        _reactNative.Text,
-        {
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 9
-          }
-        },
-        '\u672A\u5B8C\u6210'
-      );
-    }
-  }]);
-  return editInfo;
+		var _temp, _this, _ret;
+
+		babelHelpers.classCallCheck(this, editInfo);
+
+		for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+			args[_key] = arguments[_key];
+		}
+
+		return _ret = (_temp = (_this = babelHelpers.possibleConstructorReturn(this, (_ref = editInfo.__proto__ || Object.getPrototypeOf(editInfo)).call.apply(_ref, [this].concat(args))), _this), _this._onRefresh = function () {
+			return alert('已经是没有消息了！');
+		}, _this._renderItem = function (_ref2) {
+			var item = _ref2.item;
+			return _react2.default.createElement(
+				_reactNative.View,
+				{
+					__source: {
+						fileName: _jsxFileName,
+						lineNumber: 34
+					}
+				},
+				_react2.default.createElement(
+					_reactNative.View,
+					{ style: { marginTop: 10 }, __source: {
+							fileName: _jsxFileName,
+							lineNumber: 35
+						}
+					},
+					_react2.default.createElement(
+						_reactNative.View,
+						{ style: { backgroundColor: '#fff', paddingHorizontal: 8, paddingTop: 8, flex: 1, flexDirection: 'row' }, __source: {
+								fileName: _jsxFileName,
+								lineNumber: 36
+							}
+						},
+						_react2.default.createElement(
+							_reactNative.View,
+							{ style: { backgroundColor: "bisque", width: 48, height: 48 }, __source: {
+									fileName: _jsxFileName,
+									lineNumber: 37
+								}
+							},
+							_react2.default.createElement(_reactNative.Image, { source: require(464                           ), style: { width: 48, height: 48, borderRadius: 48 }, __source: { // 464 = ../../../res/images/logo.png
+									fileName: _jsxFileName,
+									lineNumber: 38
+								}
+							})
+						),
+						_react2.default.createElement(
+							_reactNative.View,
+							{ style: { flex: 1, flexDirection: 'row' }, __source: {
+									fileName: _jsxFileName,
+									lineNumber: 40
+								}
+							},
+							_react2.default.createElement(
+								_reactNative.View,
+								{ style: { flex: 1, justifyContent: 'center', paddingLeft: 10 }, __source: {
+										fileName: _jsxFileName,
+										lineNumber: 41
+									}
+								},
+								_react2.default.createElement(
+									_reactNative.Text,
+									{
+										__source: {
+											fileName: _jsxFileName,
+											lineNumber: 42
+										}
+									},
+									'FlyingWWS'
+								),
+								_react2.default.createElement(
+									_reactNative.Text,
+									{
+										__source: {
+											fileName: _jsxFileName,
+											lineNumber: 43
+										}
+									},
+									'2017-09-20'
+								)
+							),
+							_react2.default.createElement(
+								_reactNative.View,
+								{ style: { justifyContent: 'center', backgroundColor: 'bisque' }, __source: {
+										fileName: _jsxFileName,
+										lineNumber: 45
+									}
+								},
+								_react2.default.createElement(
+									_reactNative.Text,
+									{
+										__source: {
+											fileName: _jsxFileName,
+											lineNumber: 46
+										}
+									},
+									'? \u95EE\u7B54'
+								)
+							)
+						)
+					),
+					_react2.default.createElement(
+						_reactNative.View,
+						{ style: { backgroundColor: '#fff', paddingHorizontal: 8, paddingVertical: 4, borderBottomWidth: 1, borderColor: '#eee' }, __source: {
+								fileName: _jsxFileName,
+								lineNumber: 50
+							}
+						},
+						_react2.default.createElement(
+							_reactNative.Text,
+							{
+								__source: {
+									fileName: _jsxFileName,
+									lineNumber: 51
+								}
+							},
+							item.key
+						)
+					),
+					_react2.default.createElement(
+						_reactNative.View,
+						{ style: { padding: 8, flex: 1, flexDirection: 'row', backgroundColor: '#fcfcfc' }, __source: {
+								fileName: _jsxFileName,
+								lineNumber: 53
+							}
+						},
+						_react2.default.createElement(
+							_reactNative.View,
+							{ style: { flex: 1 }, __source: {
+									fileName: _jsxFileName,
+									lineNumber: 54
+								}
+							},
+							_react2.default.createElement(
+								_reactNative.Text,
+								{
+									__source: {
+										fileName: _jsxFileName,
+										lineNumber: 55
+									}
+								},
+								' $ 1\u5143'
+							)
+						),
+						_react2.default.createElement(
+							_reactNative.View,
+							{
+								__source: {
+									fileName: _jsxFileName,
+									lineNumber: 57
+								}
+							},
+							_react2.default.createElement(
+								_reactNative.View,
+								{ style: { flex: 1, flexDirection: 'row' }, __source: {
+										fileName: _jsxFileName,
+										lineNumber: 58
+									}
+								},
+								_react2.default.createElement(
+									_reactNative.Text,
+									{ style: { color: '#ffc727' }, __source: {
+											fileName: _jsxFileName,
+											lineNumber: 59
+										}
+									},
+									'\u8F6C\u53D1 '
+								),
+								_react2.default.createElement(
+									_reactNative.Text,
+									{
+										__source: {
+											fileName: _jsxFileName,
+											lineNumber: 60
+										}
+									},
+									'\u62A2\u5355 '
+								)
+							)
+						)
+					)
+				)
+			);
+		}, _temp), babelHelpers.possibleConstructorReturn(_this, _ret);
+	}
+
+	babelHelpers.createClass(editInfo, [{
+		key: 'render',
+		value: function render() {
+			return _react2.default.createElement(
+				_reactNative.View,
+				{
+					__source: {
+						fileName: _jsxFileName,
+						lineNumber: 9
+					}
+				},
+				_react2.default.createElement(_reactNative.FlatList, {
+					data: [{ key: '二我一直不理解这句话，总感觉有点矛盾，现在想来自己才是那个矛盾体。有些地方只有你去了才会明白，有些人你去了才会遇见。' }, { key: '三笑，是尼泊尔另外一道美丽的风景线。他们喜欢笑，发自内心的那种微笑。不管是老人，孩子，还是其他年龄段的人都在笑。我喜欢笑，我也爱笑，所以我对他们也笑了。' }, { key: '四从布丁山西面的望月山上迁徙过来的河马家族，它们的方法似乎更简单，直接把布丁河的上游连接到能量站，然后河水的沿岸都可以作为二次能量源进行释放和传递。它们主要考虑的是，饮水时随时可以吸收能量，让自己的身体更加强壮。' }, { key: '五如果找一种饮品，来比喻汪曾祺的作品，非清茶莫属。刚入口的时候有点寡淡，好像索然无味，之后丝丝清甜顺着咽喉缓缓逆行而上，蔓延到口腔里，生出许多津液来。我不太会品茶，也不知行家眼里的好茶是什么味，但却喜欢这样的茶带来的舒服和惬意。' }, { key: '六简洁、凝练，留有余地，将自己抽身于作品之外，克制住情感，平静地叙述，而不是把所有的喜怒哀乐都肆意地渲泄出来，这是汪曾祺常用的结尾方式。' }, { key: '七她们的眼睛尤其像，白眼珠鸭蛋青，黑眼珠棋子黑，定神时如清水，闪动时像星星。浑身上下，头是头，脚是脚，头发滑溜溜的，衣服格挣挣的。' }, { key: '八警报长鸣，其他同学都仓惶逃跑，但一罗姓女同学偏偏不跑，因为一有警报，大家都跑了，锅炉房的热水没人用，她一人就可以敞开来洗，想洗多久就洗多久。另一郑姓男同学，则用漱口缸在热锅炉上煮冰糖莲子，有次炸弹在不远处乒乒乓乓地响，而他却神色不动地搅着羹汤。' }, { key: '九来往海上的人谈论立村，都说立村烟波浩瀚，难以找寻。村里人说起八礁山，烟云浩渺的景象可以亲眼看见。八礁山连着天际，高耸入云。八礁山的特点有两个。一个是高峰入云霄，清晨烟雾缭绕，颇为神秘。另一个是奇，它就奇在山向东面倾斜，且一侧立于海边。﻿' }, { key: '十“八月十五月儿圆啊，爷爷为我打月饼啊，月饼圆圆，甜又香啊~~~”，美美快到中秋，吃月饼的季节，我不禁就会想起这首儿时的童谣，它勾起了我满满的回忆，勾起了小时侯和奶奶一起做“团圆馍”时的情景' }, { key: 'A烟花三月之时，有计划下一趟江南，却因工作周折而未能成行，想来是时候未到。先前因为工作原因去过杭州两次，但水乡古镇杭州是看不到的，时间也匆忙，走过西湖，也谈不上太多感想。直到今年元旦，才得以成行。' }, { key: 'B江南是温柔的，是多情的，是梦幻的，江南水乡是无数人编制出来的梦，没有哪一个地方会比梦里的那个江南更美。﻿' }, { key: 'C放弃你自己，就如同放弃了我，我的精神家园世界因为没你而变得荒芜。村上村树说“你最爱的人，心中也有一片你无法到达的森林”。黑夜就在周围逡巡，我独自笼罩其中。' }, { key: 'D我害怕那种经历了两个人的甜蜜后，努力适应分手后一个人的生活，我好不容易习惯了一个的自在惬意，好不容易从上一段感情的阴霾中走出来，我实在是很害怕，再次踏进旋涡，我也没有多少把握，我陷进去后，还能再次顽强的走出来。' }],
+					onRefresh: this._onRefresh,
+					refreshing: false,
+					renderItem: this._renderItem,
+					__source: {
+						fileName: _jsxFileName,
+						lineNumber: 10
+					}
+				})
+			);
+		}
+	}]);
+	return editInfo;
 }(_react.Component);
 
 exports.default = editInfo;
@@ -56511,7 +56800,7 @@ var AutoExpandingTextInput = function (_Component) {
                 value: this.state.text,
                 __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 36
+                    lineNumber: 39
                 }
             }));
         }
@@ -56772,7 +57061,7 @@ var App = (0, _reactNavigation.StackNavigator)({
 exports.default = App;
 }, 470, null, "cmrh/app/ui/person/person.js");
 __d(/* cmrh/app/ui/person/subPage/editInfo.js */function(global, require, module, exports) {Object.defineProperty(exports, "__esModule", {
-	value: true
+		value: true
 });
 var _jsxFileName = 'E:\\NativeApp\\cmrh\\app\\ui\\person\\subPage\\editInfo.js';
 
@@ -56782,61 +57071,290 @@ var _react2 = babelHelpers.interopRequireDefault(_react);
 
 var _reactNative = require(26            ); // 26 = react-native
 
+var _touchLine = require(472                        ); // 472 = ../../../common/touchLine
+
+var _touchLine2 = babelHelpers.interopRequireDefault(_touchLine);
+
 var editInfo = function (_Component) {
-	babelHelpers.inherits(editInfo, _Component);
+		babelHelpers.inherits(editInfo, _Component);
 
-	function editInfo() {
-		babelHelpers.classCallCheck(this, editInfo);
-		return babelHelpers.possibleConstructorReturn(this, (editInfo.__proto__ || Object.getPrototypeOf(editInfo)).apply(this, arguments));
-	}
+		function editInfo(props) {
+				babelHelpers.classCallCheck(this, editInfo);
 
-	babelHelpers.createClass(editInfo, [{
-		key: 'render',
-		value: function render() {
-			return _react2.default.createElement(
-				_reactNative.Text,
-				{
-					__source: {
-						fileName: _jsxFileName,
-						lineNumber: 25
-					}
-				},
-				'Hello world!'
-			);
+				var _this = babelHelpers.possibleConstructorReturn(this, (editInfo.__proto__ || Object.getPrototypeOf(editInfo)).call(this, props));
+
+				_this.state = { modalVisible: false };
+				return _this;
 		}
-	}]);
-	return editInfo;
+
+		babelHelpers.createClass(editInfo, [{
+				key: '_setModalVisible',
+				value: function _setModalVisible(visible) {
+						this.setState({ modalVisible: visible });
+				}
+		}, {
+				key: 'render',
+				value: function render() {
+						var _this2 = this;
+
+						return _react2.default.createElement(
+								_reactNative.View,
+								{
+										__source: {
+												fileName: _jsxFileName,
+												lineNumber: 33
+										}
+								},
+								_react2.default.createElement(
+										_reactNative.Modal,
+										{
+												animationType: "slide",
+												transparent: false,
+												visible: this.state.modalVisible,
+												onRequestClose: function onRequestClose() {
+														alert("Modal has been closed.");
+												},
+												__source: {
+														fileName: _jsxFileName,
+														lineNumber: 34
+												}
+										},
+										_react2.default.createElement(
+												_reactNative.View,
+												{ style: { marginTop: 22 }, __source: {
+																fileName: _jsxFileName,
+																lineNumber: 40
+														}
+												},
+												_react2.default.createElement(
+														_reactNative.View,
+														{
+																__source: {
+																		fileName: _jsxFileName,
+																		lineNumber: 41
+																}
+														},
+														_react2.default.createElement(
+																_reactNative.Text,
+																{
+																		__source: {
+																				fileName: _jsxFileName,
+																				lineNumber: 42
+																		}
+																},
+																'Hello World!'
+														),
+														_react2.default.createElement(
+																_reactNative.TouchableHighlight,
+																{
+																		underlayColor: '#d2e6ff',
+																		onPress: function onPress() {
+																				_this2._setModalVisible(!_this2.state.modalVisible);
+																		}, __source: {
+																				fileName: _jsxFileName,
+																				lineNumber: 44
+																		}
+																},
+																_react2.default.createElement(
+																		_reactNative.Text,
+																		{
+																				__source: {
+																						fileName: _jsxFileName,
+																						lineNumber: 49
+																				}
+																		},
+																		'Hide Modal'
+																)
+														)
+												)
+										)
+								),
+								_react2.default.createElement(
+										_reactNative.TouchableHighlight,
+										{
+												underlayColor: '#d2e6ff',
+												onPress: function onPress() {
+														_this2._setModalVisible(true);
+												}, __source: {
+														fileName: _jsxFileName,
+														lineNumber: 55
+												}
+										},
+										_react2.default.createElement(
+												_reactNative.Text,
+												{
+														__source: {
+																fileName: _jsxFileName,
+																lineNumber: 60
+														}
+												},
+												'Show Modal'
+										)
+								),
+								_react2.default.createElement(
+										_reactNative.ScrollView,
+										{ style: { backgroundColor: "bisque" }, __source: {
+														fileName: _jsxFileName,
+														lineNumber: 63
+												}
+										},
+										_react2.default.createElement(
+												_reactNative.View,
+												{ style: { flex: 1, flexDirection: 'row', justifyContent: 'space-between', borderBottomWidth: 1, borderColor: '#eee', backgroundColor: '#fff', paddingVertical: 10, paddingHorizontal: 20 }, __source: {
+																fileName: _jsxFileName,
+																lineNumber: 64
+														}
+												},
+												_react2.default.createElement(
+														_reactNative.View,
+														{ style: { justifyContent: 'center' }, __source: {
+																		fileName: _jsxFileName,
+																		lineNumber: 65
+																}
+														},
+														_react2.default.createElement(
+																_reactNative.Text,
+																{
+																		__source: {
+																				fileName: _jsxFileName,
+																				lineNumber: 66
+																		}
+																},
+																'\u5934\u50CF'
+														)
+												),
+												_react2.default.createElement(
+														_reactNative.View,
+														{
+																__source: {
+																		fileName: _jsxFileName,
+																		lineNumber: 68
+																}
+														},
+														_react2.default.createElement(_reactNative.Image, { source: require(464                           ), style: { width: 44, height: 44, borderRadius: 44 }, __source: { // 464 = ../../../res/images/logo.png
+																		fileName: _jsxFileName,
+																		lineNumber: 69
+																}
+														})
+												)
+										),
+										_react2.default.createElement(_touchLine2.default, {
+												__source: {
+														fileName: _jsxFileName,
+														lineNumber: 72
+												}
+										})
+								)
+						);
+				}
+		}]);
+		return editInfo;
 }(_react.Component);
 
 editInfo.navigationOptions = function (_ref) {
-	var navigation = _ref.navigation;
-	return {
-		title: navigation.state.params.val,
-		tabBarVisible: false,
-		headerStyle: {
-			height: 48,
-			backgroundColor: '#3b88ff'
-		},
-		headerTitleStyle: {
-			alignSelf: 'center',
-			marginRight: 56,
-			color: '#fff',
-			fontWeight: "400"
-		},
+		var navigation = _ref.navigation;
+		return {
+				title: navigation.state.params.val,
+				tabBarVisible: false,
+				headerStyle: {
+						height: 48,
+						backgroundColor: '#3b88ff'
+				},
+				headerTitleStyle: {
+						alignSelf: 'center',
+						marginRight: 56,
+						color: '#fff',
+						fontWeight: "400"
+				},
 
-		headerTintColor: '#fff',
-		gesturesEnabled: true
-	};
+				headerTintColor: '#fff',
+				gesturesEnabled: true
+		};
 };
 
 exports.default = editInfo;
 }, 471, null, "cmrh/app/ui/person/subPage/editInfo.js");
+__d(/* cmrh/app/common/touchLine.js */function(global, require, module, exports) {Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+var _jsxFileName = 'E:\\NativeApp\\cmrh\\app\\common\\touchLine.js';
+
+var _react = require(12     ); // 12 = react
+
+var _react2 = babelHelpers.interopRequireDefault(_react);
+
+var _reactNative = require(26            ); // 26 = react-native
+
+var TouchLine = function (_Component) {
+    babelHelpers.inherits(TouchLine, _Component);
+
+    function TouchLine(props) {
+        babelHelpers.classCallCheck(this, TouchLine);
+
+        var _this = babelHelpers.possibleConstructorReturn(this, (TouchLine.__proto__ || Object.getPrototypeOf(TouchLine)).call(this, props));
+
+        _this.state = {
+            title: ''
+        };
+        return _this;
+    }
+
+    babelHelpers.createClass(TouchLine, [{
+        key: 'render',
+        value: function render() {
+            return _react2.default.createElement(
+                _reactNative.View,
+                { style: { flex: 1, flexDirection: 'row', justifyContent: 'space-between', borderBottomWidth: 1, borderColor: '#eee', backgroundColor: '#fff', paddingVertical: 10, paddingHorizontal: 20 }, __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 16
+                    }
+                },
+                _react2.default.createElement(
+                    _reactNative.View,
+                    { style: { justifyContent: 'center' }, __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 17
+                        }
+                    },
+                    _react2.default.createElement(
+                        _reactNative.Text,
+                        {
+                            __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 18
+                            }
+                        },
+                        '\u5934\u50CF'
+                    )
+                ),
+                _react2.default.createElement(
+                    _reactNative.View,
+                    {
+                        __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 20
+                        }
+                    },
+                    _react2.default.createElement(_reactNative.Image, { source: require(464                     ), style: { width: 44, height: 44, borderRadius: 44 }, __source: { // 464 = ../res/images/logo.png
+                            fileName: _jsxFileName,
+                            lineNumber: 21
+                        }
+                    })
+                )
+            );
+        }
+    }]);
+    return TouchLine;
+}(_react.Component);
+
+exports.default = TouchLine;
+}, 472, null, "cmrh/app/common/touchLine.js");
 __d(/* cmrh/app/res/images/home.png */function(global, require, module, exports) {module.exports=require(259                                         ).registerAsset({"__packager_asset":true,"httpServerLocation":"/assets/app/res/images","width":128,"height":128,"scales":[1],"hash":"6babdc46ad9791553ca47429dad957a0","name":"home","type":"png"}); // 259 = react-native/Libraries/Image/AssetRegistry
-}, 472, null, "cmrh/app/res/images/home.png");
+}, 473, null, "cmrh/app/res/images/home.png");
 __d(/* cmrh/app/res/images/warn.png */function(global, require, module, exports) {module.exports=require(259                                         ).registerAsset({"__packager_asset":true,"httpServerLocation":"/assets/app/res/images","width":128,"height":128,"scales":[1],"hash":"8ff7d7d23baba2c72073ed5040bbefa1","name":"warn","type":"png"}); // 259 = react-native/Libraries/Image/AssetRegistry
-}, 473, null, "cmrh/app/res/images/warn.png");
+}, 474, null, "cmrh/app/res/images/warn.png");
 __d(/* cmrh/app/res/images/person.png */function(global, require, module, exports) {module.exports=require(259                                         ).registerAsset({"__packager_asset":true,"httpServerLocation":"/assets/app/res/images","width":128,"height":128,"scales":[1],"hash":"3621374944d8995d9c6bcdadd89aec6d","name":"person","type":"png"}); // 259 = react-native/Libraries/Image/AssetRegistry
-}, 474, null, "cmrh/app/res/images/person.png");
+}, 475, null, "cmrh/app/res/images/person.png");
 ;require(120);
 ;require(0);
 //# sourceMappingURL=/index.android.map
